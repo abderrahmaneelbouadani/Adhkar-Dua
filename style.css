@@ -1,7 +1,7 @@
 /* ===========================
    Base & Typography
    =========================== */
-body { font-family: 'Inter', sans-serif; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; }
 html[dir="rtl"], html[dir="rtl"] body { font-family: 'Cairo', sans-serif; }
 
 .arabic-text {
@@ -430,7 +430,8 @@ body.dark #toast-inner { background-color: #1e293b; border: 1px solid #334155; }
 
 /* Footer dark */
 body.dark footer p { color: #64748b; }
-body.dark footer .font-medium { color: #475569; }
+body.dark footer .font-semibold { color: #475569; }
+body.dark footer .text-gray-300 { color: #334155; }
 
 /* Empty state dark */
 body.dark #empty-state h3 { color: #94a3b8; }
