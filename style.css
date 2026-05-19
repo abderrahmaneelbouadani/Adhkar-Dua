@@ -2,6 +2,7 @@
    Base & Typography
    =========================== */
 body { font-family: 'Inter', sans-serif; }
+html[dir="rtl"], html[dir="rtl"] body { font-family: 'Cairo', sans-serif; }
 
 .arabic-text {
     font-family: 'Amiri', serif;
@@ -435,6 +436,129 @@ body.dark footer .font-medium { color: #475569; }
 body.dark #empty-state h3 { color: #94a3b8; }
 body.dark #empty-state p   { color: #64748b; }
 
-/* Home greeting dark */
-body.dark #home-greeting { color: #6ee7b7; }
-body.dark #home-view > div > p { color: #64748b; }
+/* (old #home-greeting and #home-view > div > p rules removed — home view is now fully JS-rendered) */
+
+/* ===========================
+   DASHBOARD (home redesign)
+   =========================== */
+.dash-welcome {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border: 1px solid #a7f3d0;
+    border-radius: 1.125rem;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+.dash-greeting {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #065f46;
+    line-height: 1.2;
+}
+.dash-date    { font-size: 0.8rem; color: #059669; margin-top: 0.25rem; }
+.dash-subtitle{ font-size: 0.8rem; color: #6b7280; margin-top: 0.4rem; }
+
+.dash-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+.dash-stat {
+    background: #fff;
+    border-radius: 0.875rem;
+    padding: 0.875rem 0.75rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
+    text-align: center;
+}
+.dash-stat-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #9ca3af;
+    margin-bottom: 0.2rem;
+}
+.dash-stat-value {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #1f2937;
+    line-height: 1.1;
+}
+.dash-stat-unit { font-size: 0.75rem; color: #6b7280; }
+.dash-stat-bar  {
+    height: 4px;
+    background: #f3f4f6;
+    border-radius: 9999px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+.dash-stat-fill { height: 100%; border-radius: 9999px; transition: width 0.5s ease; }
+.dash-fill-morning { background: linear-gradient(to right, #fbbf24, #f97316); }
+.dash-fill-evening { background: linear-gradient(to right, #818cf8, #7c3aed); }
+.dash-stat-streak .dash-stat-value { color: #059669; }
+.dash-stat-streak .dash-stat-label { font-size: 0.72rem; text-transform: none; letter-spacing: 0; }
+
+.dash-section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #9ca3af;
+    margin-bottom: 0.75rem;
+}
+
+/* ===========================
+   COMPLETION SCREEN
+   =========================== */
+#completion-view {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#completion-view.hidden { display: none; }
+.completion-container { text-align: center; padding: 3rem 1rem; }
+.completion-icon-wrap { animation: completionPop 0.55s cubic-bezier(.175,.885,.32,1.275); }
+@keyframes completionPop {
+    0%   { opacity: 0; transform: scale(0.4); }
+    80%  { transform: scale(1.08); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* ===========================
+   Language select (settings)
+   =========================== */
+.lang-select {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 0.35rem 0.65rem;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.15s;
+}
+.lang-select:focus { border-color: #10b981; }
+
+/* ===========================
+   DARK MODE — new elements
+   =========================== */
+body.dark .dash-welcome {
+    background: linear-gradient(135deg, #022c22 0%, #064e3b 100%);
+    border-color: #065f46;
+}
+body.dark .dash-greeting { color: #6ee7b7; }
+body.dark .dash-date     { color: #34d399; }
+body.dark .dash-subtitle { color: #64748b; }
+body.dark .dash-stat     { background: #1e293b; }
+body.dark .dash-stat-label { color: #64748b; }
+body.dark .dash-stat-value { color: #e2e8f0; }
+body.dark .dash-stat-unit  { color: #94a3b8; }
+body.dark .dash-stat-bar   { background: #334155; }
+body.dark .dash-stat-streak .dash-stat-value { color: #34d399; }
+body.dark .dash-section-label { color: #475569; }
+body.dark .lang-select { background: #334155; border-color: #475569; color: #e2e8f0; }
+body.dark #completion-title   { color: #6ee7b7; }
+body.dark #completion-message { color: #94a3b8; }

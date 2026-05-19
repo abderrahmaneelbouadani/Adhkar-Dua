@@ -73,9 +73,30 @@ let adhkarData  = {};
 let history     = {};
 let favorites   = {};
 
-let currentView      = 'home';   // 'home' | 'reader' | 'search'
+let currentView      = 'home';   // 'home' | 'reader' | 'search' | 'completion'
 let readerCategory   = 'morning';
 let readerIndex      = 0;
+
+function getCategoryProgress(key) {
+    if (!adhkarData[key]) return 0;
+    const total = adhkarData[key].items.reduce((s, d) => s + d.count, 0);
+    const done  = adhkarData[key].items.reduce((s, d) => s + (d.read || 0), 0);
+    return total > 0 ? Math.min(Math.round((done / total) * 100), 100) : 0;
+}
+
+function getStreakCount() {
+    let streak = 0;
+    const d = new Date();
+    while (true) {
+        const key       = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+        const completed = history[key] || [];
+        if (completed.includes('morning') || completed.includes('evening')) {
+            streak++;
+            d.setDate(d.getDate() - 1);
+        } else break;
+    }
+    return streak;
+}
 
 // ============================================================
 //  CATEGORY METADATA  (icons + descriptions for home cards)
@@ -117,7 +138,112 @@ const settings = {
     showTransliteration: true,
     showTranslation: true,
     darkMode: false,
+    language: 'en',
 };
+
+// ============================================================
+//  TRANSLATIONS
+// ============================================================
+
+const translations = {
+    en: {
+        greeting_morning:   'Good Morning',
+        greeting_afternoon: 'Good Afternoon',
+        greeting_evening:   'Good Evening',
+        select_category:    'Select a category to begin your remembrance.',
+        morning:            'Morning Adhkar',
+        evening:            'Evening Adhkar',
+        afterSalah:         'After Salah',
+        rabbana:            'Rabbana Duas',
+        forgiveness:        'Forgiveness',
+        favorites:          'Favorites',
+        morning_desc:       'Morning remembrances',
+        evening_desc:       'Evening remembrances',
+        afterSalah_desc:    'Post-prayer dhikr',
+        rabbana_desc:       "Qur'anic supplications",
+        forgiveness_desc:   'Seeking forgiveness',
+        favorites_desc:     'Your saved duas',
+        morning_progress:   'Morning',
+        evening_progress:   'Evening',
+        streak:             'Day Streak',
+        item:               'item',
+        items:              'items',
+        count:              'Count',
+        next:               'Next',
+        prev:               'Prev',
+        back:               'Back',
+        finish:             'Finish',
+        copy:               'Copy',
+        virtue:             'Virtue',
+        completed:          'Completed',
+        save:               'Save',
+        saved:              'Saved',
+        reset:              'Reset',
+        swipe_hint:         'swipe to navigate',
+        search_placeholder: 'Search in Arabic, transliteration, or translation…',
+        no_results:         'No results found',
+        no_results_sub:     'Try a different keyword or clear the search.',
+        fav_added:          'Added to favorites!',
+        fav_removed:        'Removed from favorites',
+        copied:             'Copied to clipboard!',
+        copy_fail:          'Could not copy',
+        language:           'Language',
+        completion_title:   'Alhamdulillah!',
+        completion_message: 'You have completed your {category} today.',
+        completion_btn:     'Back to Home',
+    },
+    ar: {
+        greeting_morning:   'صباح الخير',
+        greeting_afternoon: 'مساء الخير',
+        greeting_evening:   'مساء الخير',
+        select_category:    'اختر فئة لبدء الأذكار.',
+        morning:            'أذكار الصباح',
+        evening:            'أذكار المساء',
+        afterSalah:         'أذكار بعد الصلاة',
+        rabbana:            'أدعية ربنا',
+        forgiveness:        'الاستغفار',
+        favorites:          'المحفوظات',
+        morning_desc:       'أذكار الصباح',
+        evening_desc:       'أذكار المساء',
+        afterSalah_desc:    'أذكار ما بعد الصلاة',
+        rabbana_desc:       'أدعية قرآنية',
+        forgiveness_desc:   'طلب المغفرة',
+        favorites_desc:     'أذكارك المحفوظة',
+        morning_progress:   'الصباح',
+        evening_progress:   'المساء',
+        streak:             'يوم متواصل',
+        item:               'عنصر',
+        items:              'عناصر',
+        count:              'عدّ',
+        next:               'التالي',
+        prev:               'السابق',
+        back:               'رجوع',
+        finish:             'إنهاء',
+        copy:               'نسخ',
+        virtue:             'الفضل',
+        completed:          'تمّ',
+        save:               'حفظ',
+        saved:              'محفوظ',
+        reset:              'إعادة',
+        swipe_hint:         'اسحب للتنقل',
+        search_placeholder: 'ابحث بالعربية أو النقحرة أو الترجمة…',
+        no_results:         'لا توجد نتائج',
+        no_results_sub:     'جرّب كلمة مختلفة أو امسح البحث.',
+        fav_added:          'تمت الإضافة للمحفوظات!',
+        fav_removed:        'تمت الإزالة من المحفوظات',
+        copied:             'تم النسخ!',
+        copy_fail:          'تعذّر النسخ',
+        language:           'اللغة',
+        completion_title:   'الحمد لله!',
+        completion_message: 'لقد أتممت {category} اليوم.',
+        completion_btn:     'العودة للرئيسية',
+    }
+};
+
+function t(key) {
+    const lang = settings.language || 'en';
+    return (translations[lang] && translations[lang][key]) || translations.en[key] || key;
+}
 
 const fontSizes = [
     { label: 'S', arabic: '1rem',    english: '0.8rem'   },
@@ -178,39 +304,35 @@ function applyTheme() {
 function renderHomeView() {
     currentView = 'home';
 
-    document.getElementById('home-view').classList.remove('hidden');
     document.getElementById('reader-view').classList.add('hidden');
     document.getElementById('adhkar-container').classList.add('hidden');
     document.getElementById('empty-state').classList.add('hidden');
+    const compView = document.getElementById('completion-view');
+    if (compView) compView.classList.add('hidden');
 
-    // Time-based greeting
-    const hour = new Date().getHours();
-    const greeting = hour < 12 ? 'Good Morning'
-                   : hour < 18 ? 'Good Afternoon'
-                   : 'Good Evening';
-    const greetEl = document.getElementById('home-greeting');
-    if (greetEl) greetEl.textContent = greeting;
+    const homeView = document.getElementById('home-view');
+    homeView.classList.remove('hidden');
 
-    const grid = document.getElementById('home-grid');
-    grid.innerHTML = '';
+    const hour     = new Date().getHours();
+    const greetKey = hour < 12 ? 'greeting_morning' : hour < 18 ? 'greeting_afternoon' : 'greeting_evening';
+    const locale   = settings.language === 'ar' ? 'ar-SA' : 'en-US';
+    const dateStr  = new Date().toLocaleDateString(locale, {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    });
 
-    // Build cards for all real categories + favorites
-    const allKeys = [...Object.keys(staticAdhkarData), 'favorites'];
+    const morningPct = getCategoryProgress('morning');
+    const eveningPct = getCategoryProgress('evening');
+    const streak     = getStreakCount();
 
-    allKeys.forEach(key => {
+    const allKeys   = [...Object.keys(staticAdhkarData), 'favorites'];
+    const cardsHtml = allKeys.map(key => {
         const meta  = categoryMeta[key];
-        const items = key === 'favorites'
-            ? getFavoriteItems().items
-            : staticAdhkarData[key].items;
-        const title = key === 'favorites' ? 'Favorites' : staticAdhkarData[key].title;
+        const items = key === 'favorites' ? getFavoriteItems().items : staticAdhkarData[key].items;
         const count = items.length;
 
-        // Progress bar for morning / evening
         let progressHtml = '';
         if (key === 'morning' || key === 'evening') {
-            const total = adhkarData[key].items.reduce((s, d) => s + d.count, 0);
-            const done  = adhkarData[key].items.reduce((s, d) => s + (d.read || 0), 0);
-            const pct   = total > 0 ? Math.min(Math.round((done / total) * 100), 100) : 0;
+            const pct = key === 'morning' ? morningPct : eveningPct;
             progressHtml = `
                 <div class="home-card-progress-wrap">
                     <div class="home-card-progress-track">
@@ -220,17 +342,54 @@ function renderHomeView() {
                 </div>`;
         }
 
-        const card = document.createElement('button');
-        card.className = `home-card home-card-${key}`;
-        card.innerHTML = `
-            <span class="home-card-icon">${meta.icon}</span>
-            <span class="home-card-title">${title}</span>
-            <span class="home-card-desc">${meta.desc}</span>
-            <span class="home-card-count">${count} ${count === 1 ? 'item' : 'items'}</span>
-            ${progressHtml}
-        `;
-        card.addEventListener('click', () => openReader(key));
-        grid.appendChild(card);
+        return `
+            <button class="home-card home-card-${key}" data-category="${key}">
+                <span class="home-card-icon">${meta.icon}</span>
+                <span class="home-card-title">${t(key)}</span>
+                <span class="home-card-desc">${t(key + '_desc')}</span>
+                <span class="home-card-count">${count} ${count === 1 ? t('item') : t('items')}</span>
+                ${progressHtml}
+            </button>`;
+    }).join('');
+
+    homeView.innerHTML = `
+        <div class="container mx-auto px-4 pt-6 pb-24 max-w-2xl">
+
+            <div class="dash-welcome">
+                <p class="dash-greeting">${t(greetKey)}</p>
+                <p class="dash-date">${dateStr}</p>
+                <p class="dash-subtitle">${t('select_category')}</p>
+            </div>
+
+            <div class="dash-stats">
+                <div class="dash-stat">
+                    <p class="dash-stat-label">${t('morning_progress')}</p>
+                    <p class="dash-stat-value">${morningPct}<span class="dash-stat-unit">%</span></p>
+                    <div class="dash-stat-bar">
+                        <div class="dash-stat-fill dash-fill-morning" style="width:${morningPct}%"></div>
+                    </div>
+                </div>
+                <div class="dash-stat">
+                    <p class="dash-stat-label">${t('evening_progress')}</p>
+                    <p class="dash-stat-value">${eveningPct}<span class="dash-stat-unit">%</span></p>
+                    <div class="dash-stat-bar">
+                        <div class="dash-stat-fill dash-fill-evening" style="width:${eveningPct}%"></div>
+                    </div>
+                </div>
+                <div class="dash-stat dash-stat-streak">
+                    <p class="dash-stat-value">${streak}</p>
+                    <p class="dash-stat-label">${t('streak')}</p>
+                </div>
+            </div>
+
+            <p class="dash-section-label">— ${settings.language === 'ar' ? 'الفئات' : 'Categories'} —</p>
+            <div id="home-grid" class="grid grid-cols-2 gap-4">
+                ${cardsHtml}
+            </div>
+        </div>`;
+
+    homeView.querySelectorAll('.home-card[data-category]').forEach(card => {
+        card.addEventListener('click', () => openReader(card.dataset.category));
     });
 }
 
@@ -308,8 +467,8 @@ function renderReaderCard() {
     if (nextBtn) {
         const isLast = readerIndex >= items.length - 1;
         nextBtn.innerHTML = isLast
-            ? `Finish <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>`
-            : `Next <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>`;
+            ? `${t('finish')} <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>`
+            : `${t('next')} <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>`;
     }
 
     // Render card
@@ -323,16 +482,16 @@ function renderReaderCard() {
                 <div class="flex items-center gap-1">
                     <button class="fav-btn${isFav ? ' is-fav' : ''}" data-id="${dhikr.id}" aria-label="${isFav ? 'Remove from favorites' : 'Add to favorites'}">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="${isFav ? 'currentColor' : 'none'}" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                        <span>${isFav ? 'Saved' : 'Save'}</span>
+                        <span>${isFav ? t('saved') : t('save')}</span>
                     </button>
                     ${dhikr.virtue_ar ? `
                     <button class="virtue-btn fav-btn" data-id="${dhikr.id}" data-category="${readerCategory}" aria-label="View virtue">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        <span>Virtue</span>
+                        <span>${t('virtue')}</span>
                     </button>` : ''}
                     <button class="copy-btn fav-btn" data-id="${dhikr.id}" data-category="${readerCategory}" aria-label="Copy">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-                        <span>Copy</span>
+                        <span>${t('copy')}</span>
                     </button>
                 </div>
             </div>
@@ -353,12 +512,23 @@ function navigateReader(delta) {
     const items    = getReaderItems(readerCategory);
     const newIndex = readerIndex + delta;
 
-    if (newIndex < 0) return; // already at first
+    if (newIndex < 0) return;
 
     if (newIndex >= items.length) {
-        // Reached end of category
+        const isTracked = readerCategory !== 'favorites'
+            && adhkarData[readerCategory]
+            && adhkarData[readerCategory].trackProgress;
+
+        if (isTracked) {
+            const allDone = adhkarData[readerCategory].items.every(d => (d.read || 0) >= d.count);
+            if (allDone) {
+                showCompletionScreen(readerCategory);
+                return;
+            }
+        }
+
         goHome();
-        showToast(`${document.getElementById('reader-cat-title').textContent} complete!`);
+        showToast(`${t(readerCategory)} — ${t('completed')}!`);
         return;
     }
 
@@ -367,8 +537,28 @@ function navigateReader(delta) {
 }
 
 function goHome() {
-    currentView = 'reader'; // temporary so renderHomeView sets it properly
     renderHomeView();
+}
+
+function showCompletionScreen(category) {
+    currentView = 'completion';
+
+    document.getElementById('home-view').classList.add('hidden');
+    document.getElementById('reader-view').classList.add('hidden');
+
+    const compView = document.getElementById('completion-view');
+    if (!compView) { goHome(); return; }
+    compView.classList.remove('hidden');
+
+    const title = document.getElementById('completion-title');
+    const msg   = document.getElementById('completion-message');
+    const btn   = document.getElementById('completion-home-btn');
+
+    if (title) title.textContent = t('completion_title');
+    if (msg)   msg.textContent   = t('completion_message').replace('{category}', t(category));
+    if (btn)   btn.textContent   = t('completion_btn');
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // ============================================================
@@ -487,8 +677,8 @@ function buildCounterHtml(dhikr, category) {
                 ${isComplete ? 'disabled' : ''}
             >
                 ${isComplete
-                    ? `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> Completed`
-                    : `Count <span class="count-display bg-white/20 rounded-full px-2 text-xs">${readCount}/${dhikr.count}</span>`
+                    ? `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> ${t('completed')}`
+                    : `${t('count')} <span class="count-display bg-white/20 rounded-full px-2 text-xs">${readCount}/${dhikr.count}</span>`
                 }
             </button>
         </div>
@@ -538,15 +728,15 @@ function renderSearchResults(results) {
                 <div class="flex items-center gap-1">
                     <button class="fav-btn${isFav ? ' is-fav' : ''}" data-id="${dhikr.id}" aria-label="${isFav ? 'Remove from favorites' : 'Add to favorites'}">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="${isFav ? 'currentColor' : 'none'}" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                        <span>${isFav ? 'Saved' : 'Save'}</span>
+                        <span>${isFav ? t('saved') : t('save')}</span>
                     </button>
                     ${dhikr.virtue_ar ? `<button class="virtue-btn fav-btn" data-id="${dhikr.id}" data-category="${categoryKey}" aria-label="Virtue">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        <span>Virtue</span>
+                        <span>${t('virtue')}</span>
                     </button>` : ''}
                     <button class="copy-btn fav-btn" data-id="${dhikr.id}" data-category="${categoryKey}" aria-label="Copy">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-                        <span>Copy</span>
+                        <span>${t('copy')}</span>
                     </button>
                 </div>
             </div>
@@ -584,6 +774,49 @@ function applySettings(rerender = true) {
     applyTheme();
 
     if (rerender && currentView === 'reader') renderReaderCard();
+}
+
+// ============================================================
+//  LANGUAGE APPLICATION
+// ============================================================
+
+function applyLanguage(rerender = true) {
+    const isAr = settings.language === 'ar';
+    document.documentElement.dir  = isAr ? 'rtl' : 'ltr';
+    document.documentElement.lang = settings.language;
+
+    const langSelect = document.getElementById('language-select');
+    if (langSelect) langSelect.value = settings.language;
+
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) searchInput.placeholder = t('search_placeholder');
+
+    const swipeHint = document.querySelector('.reader-swipe-hint');
+    if (swipeHint) swipeHint.textContent = t('swipe_hint');
+
+    const backText = document.getElementById('reader-back-text');
+    if (backText) backText.textContent = t('back');
+
+    const prevText = document.getElementById('reader-prev-text');
+    if (prevText) prevText.textContent = t('prev');
+
+    const emptyTitle = document.getElementById('empty-state-title');
+    if (emptyTitle) emptyTitle.textContent = t('no_results');
+
+    const emptySub = document.getElementById('empty-state-sub');
+    if (emptySub) emptySub.textContent = t('no_results_sub');
+
+    const langLabel = document.getElementById('lang-settings-label');
+    if (langLabel) langLabel.textContent = t('language');
+
+    const resetBtnEl = document.getElementById('reset-btn');
+    if (resetBtnEl && !resetBtnEl.disabled) resetBtnEl.textContent = t('reset');
+
+    if (!rerender) return;
+
+    if (currentView === 'reader') renderReaderCard();
+    else if (currentView === 'completion') showCompletionScreen(readerCategory);
+    else renderHomeView();
 }
 
 // ============================================================
@@ -672,7 +905,7 @@ function handleCount(e) {
         btn.disabled = true;
         btn.className = btn.className
             .replace('bg-emerald-600 hover:bg-emerald-700 text-white', 'bg-emerald-100 text-emerald-700 cursor-not-allowed');
-        btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> Completed`;
+        btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> ${t('completed')}`;
 
         const card = btn.closest('.adhkar-card');
         if (card) card.classList.add('is-completed');
@@ -715,8 +948,8 @@ function handleCopyClick(e) {
         : `${dhikr.arabic}\n\n${dhikr.transliteration}\n\n${dhikr.translation}`;
 
     navigator.clipboard.writeText(text)
-        .then(()  => showToast('Copied to clipboard!'))
-        .catch(()  => showToast('Could not copy'));
+        .then(()  => showToast(t('copied')))
+        .catch(()  => showToast(t('copy_fail')));
 }
 
 function handleFavClick(e) {
@@ -734,10 +967,10 @@ function handleFavClick(e) {
     const svg  = btn.querySelector('svg');
     const span = btn.querySelector('span');
     if (svg)  svg.setAttribute('fill', isFav ? 'currentColor' : 'none');
-    if (span) span.textContent = isFav ? 'Saved' : 'Save';
+    if (span) span.textContent = isFav ? t('saved') : t('save');
     btn.setAttribute('aria-label', isFav ? 'Remove from favorites' : 'Add to favorites');
 
-    showToast(isFav ? 'Added to favorites!' : 'Removed from favorites');
+    showToast(isFav ? t('fav_added') : t('fav_removed'));
 
     // In reader mode: re-render the card so the heart state is consistent on re-visit
     if (currentView === 'reader') renderReaderCard();
@@ -837,6 +1070,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadFavorites();
 
     applySettings(false);
+    applyLanguage(false);
     applyTheme();
     renderHomeView();
     updateDateTime();
@@ -854,6 +1088,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Reset button (lives inside reader view)
     if (resetBtn) resetBtn.addEventListener('click', resetProgress);
+
+    // Completion screen
+    document.getElementById('completion-home-btn').addEventListener('click', goHome);
+
+    // Language select
+    document.getElementById('language-select').addEventListener('change', e => {
+        settings.language = e.target.value;
+        saveSettings();
+        applyLanguage(true);
+    });
 
     // Reader navigation
     document.getElementById('reader-back-btn').addEventListener('click', goHome);

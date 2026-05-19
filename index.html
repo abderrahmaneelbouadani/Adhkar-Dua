@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-emerald-50 text-gray-800">
@@ -53,16 +53,8 @@
     <!-- Main content — three panels; only one visible at a time -->
     <main id="main-content" class="min-h-screen">
 
-        <!-- HOME VIEW: category cards -->
-        <div id="home-view" class="container mx-auto px-4 py-8 max-w-2xl">
-            <div class="mb-6">
-                <p id="home-greeting" class="text-2xl font-bold text-emerald-800"></p>
-                <p class="text-sm text-gray-400 mt-1">Select a category to begin your remembrance.</p>
-            </div>
-            <div id="home-grid" class="grid grid-cols-2 gap-4">
-                <!-- Cards injected by JS -->
-            </div>
-        </div>
+        <!-- HOME VIEW: dashboard injected by JS -->
+        <div id="home-view"></div>
 
         <!-- READER VIEW: one dhikr at a time -->
         <div id="reader-view" class="hidden">
@@ -71,7 +63,7 @@
             <div class="reader-topbar">
                 <button id="reader-back-btn" aria-label="Back to categories" class="reader-back-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-                    Back
+                    <span id="reader-back-text">Back</span>
                 </button>
                 <div class="text-center leading-tight">
                     <p id="reader-cat-title" class="font-bold text-emerald-800 text-sm"></p>
@@ -99,7 +91,7 @@
             <div class="reader-bottom-nav">
                 <button id="reader-prev-btn" aria-label="Previous dhikr" class="reader-nav-btn reader-nav-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-                    Prev
+                    <span id="reader-prev-text">Prev</span>
                 </button>
                 <div class="reader-swipe-hint">swipe to navigate</div>
                 <button id="reader-next-btn" aria-label="Next dhikr" class="reader-nav-btn reader-nav-primary">
@@ -116,8 +108,24 @@
                 <div class="mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/></svg>
                 </div>
-                <h3 class="text-lg font-semibold text-gray-600 mb-2">No results found</h3>
-                <p class="text-sm text-gray-400">Try a different keyword or clear the search.</p>
+                <h3 id="empty-state-title" class="text-lg font-semibold text-gray-600 mb-2">No results found</h3>
+                <p id="empty-state-sub" class="text-sm text-gray-400">Try a different keyword or clear the search.</p>
+            </div>
+        </div>
+
+        <!-- COMPLETION VIEW -->
+        <div id="completion-view" class="hidden">
+            <div class="container mx-auto px-4 max-w-sm">
+                <div class="completion-container">
+                    <div class="completion-icon-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-20 w-20 text-emerald-500 mx-auto">
+                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h2 id="completion-title" class="text-2xl font-bold text-emerald-800 mt-6 mb-3"></h2>
+                    <p id="completion-message" class="text-gray-500 text-base leading-relaxed mb-8 px-2"></p>
+                    <button id="completion-home-btn" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-8 py-3 rounded-full transition-colors text-sm"></button>
+                </div>
             </div>
         </div>
 
@@ -197,6 +205,13 @@
                         <input type="checkbox" id="toggle-translation" class="sr-only">
                         <span class="toggle-track"></span>
                     </label>
+                </div>
+                <div class="settings-row">
+                    <span class="settings-label" id="lang-settings-label">Language</span>
+                    <select id="language-select" class="lang-select">
+                        <option value="en">English</option>
+                        <option value="ar">العربية</option>
+                    </select>
                 </div>
             </div>
         </div>
