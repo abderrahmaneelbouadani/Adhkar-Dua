@@ -1,779 +1,876 @@
-// This object holds the original, static data for all Adhkar.
+// ============================================================
+//  STATIC DATA
+// ============================================================
+
 const staticAdhkarData = {
     morning: {
-        title: 'Morning',
-        trackProgress: true,
+        title: 'Morning', trackProgress: true,
         items: [
-            {
-                id: 'm1',
-                arabic: "اللَّهُ لَا إِلَـٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",
-                transliteration: "Allahu la ilaha illa Huwa, Al-Hayyul-Qayyum. La ta'khudhuhu sinatun wa la nawm. Lahu ma fis-samawati wa ma fil-'ard. Man dhal-ladhi yashfa'u 'indahu illa bi-idhnihi. Ya'lamu ma bayna aydihim wa ma khalfahum. Wa la yuhituna bi shay'in min 'ilmihi illa bima sha'. Wasi'a kursiyyuhus-samawati wal-'ard. Wa la ya'uduhu hifdhuhuma. Wa Huwal-'Aliyyul-'Adheem.",
-                translation: "Ayat al-Kursi [Al-Baqarah: 255]",
-                count: 1, read: 0,
-                virtue_ar: "من قالها حين يصبح أجير من الجن حتى يمسي، ومن قالها حين يمsi أجير منهم حتى يصبح.",
-                virtue_en: "Whoever recites this in the morning will be protected from the jinn until the evening, and whoever recites it in the evening will be protected from them until the morning. [Al-Hakim]"
-            },
-            {
-                id: 'm2',
-                isComplex: true,
-                parts: [
-                    {
-                        title_ar: "سورة الإخلاص:",
-                        arabic: "قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ",
-                        title_en: "Surah Al-Ikhlas:",
-                        transliteration: "Qul huwa Allahu ahad. Allahu assamad. Lam yalid wa lam yoolad. Wa lam yakun lahu kufuwan ahad."
-                    },
-                    {
-                        title_ar: "سورة الفلق:",
-                        arabic: "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۝ مِن شَرِّ مَا خَلَقَ ۝ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ ۝ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۝ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",
-                        title_en: "Surah Al-Falaq:",
-                        transliteration: "Qul a'udhu birabbi alfalaq. Min sharri ma khalaq. Wa min sharri ghasiqin idha waqab. Wa min sharri annaffathati fee al'uqad. Wa min sharri hasidin idha hasad."
-                    },
-                    {
-                        title_ar: "سورة الناس:",
-                        arabic: "قُلْ أَعُوذُ بِرَبِّ النَّاسِ ۝ مَلِكِ النَّاسِ ۝ إِلَٰهِ النَّاسِ ۝ مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۝ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ۝ مِنَ الْجِنَّةِ وَالنَّاسِ",
-                        title_en: "Surah An-Nas:",
-                        transliteration: "Qul a'udhu birabbi annas. Maliki annas. Ilahi annas. Min sharri alwaswasi alkhannas. Alladhee yuwaswisu fee sudoori annas. Mina aljinnati wannas."
-                    }
-                ],
-                translation: "The three chapters of protection (Al-Mu'awwidhat).",
-                count: 3, read: 0,
-                virtue_ar: "قال رسول الله صلى الله عليه وسلم: 'قل هو الله أحد والمعوذتين حين تمسي وحين تصبح ثلاث مرات تكفيك من كل شيء.'",
-                virtue_en: "The Messenger of Allah (ﷺ) said: 'Recite them three times in the morning and evening; they will suffice you against everything.' [Abu Dawud, Tirmidhi]"
-            },
-            {
-                id: 'm3',
-                arabic: "رَضِيتُ بِاللَّهِ رَبًّا، وَبِالإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا",
-                transliteration: "Raditu billahi Rabba, wa bil-Islami dina, wa bi Muhammadin sallallahu 'alayhi wa sallama nabiyya.",
-                translation: "I am pleased with Allah as my Lord, with Islam as my religion and with Muhammad (ﷺ) as my Prophet.",
-                count: 3, read: 0,
-                virtue_ar: "قال رسول الله صلى الله عليه وسلم: 'من قالها ثلاثاً حين يصبح وحين يمسي كان حقاً على الله أن يرضيه يوم القيامة.'",
-                virtue_en: "The Messenger of Allah (ﷺ) said: 'Allah has promised that anyone who says this three times every morning or evening will be pleased on the Day of Resurrection.' [Ahmad, Tirmidhi]"
-            },
-            {
-                id: 'm4',
-                arabic: "اللَّهُمَّ إِنِّي أَصْبَحْتُ أُشْهِدُكَ، وَأُشْهِدُ حَمَلَةَ عَرْشِكَ، وَمَلَائِكَتَكَ، وَجَمِيعَ خَلْقِكَ، أَنَّكَ أَنْتَ اللَّهُ، لَا إِلَهَ إِلَّا أَنْتَ، وَحْدَكَ لَا شَرِيكَ لَكَ، وَأَنَّ مُحَمَّدًا عَبْدُكَ وَرَسُولُكَ",
-                transliteration: "Allahumma inni asbahtu ush-hiduka, wa ush-hidu hamalata 'arshika, wa mala'ikataka, wa jami'a khalqika, annaka Antallah, la ilaha illa Anta, wahdaka la sharika lak, wa anna Muhammadan 'abduka wa rasuluk.",
-                translation: "O Allah, I have reached the morning and I call You, the bearers of Your Throne, Your angels, and all of Your creation to witness that You are Allah, none has the right to be worshipped but You, alone, without partner, and that Muhammad is Your Servant and Messenger.",
-                count: 4, read: 0,
-                virtue_ar: "من قالها حين يصبح أو يمسي أربع مرات أعتقه الله من النار.",
-                virtue_en: "Whoever says this four times in the morning or evening, Allah will grant him salvation from the Hellfire. [Abu Dawud]"
-            },
-            {
-                id: 'm5',
-                arabic: "اللَّهُمَّ مَا أَصْبَحَ بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ، فَمِنْكَ وَحْدَكَ لَا شَرِيكَ لَكَ، فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ",
-                transliteration: "Allahumma ma asbaha bi min ni'matin aw bi ahadin min khalqika, fa minka wahdaka la sharika lak, falakal-hamdu wa lakash-shukr.",
-                translation: "O Allah, whatever blessing has been received by me or any of Your creation this morning is from You alone, You have no partner. For You is all praise and for You is all thanks.",
-                count: 1, read: 0,
-                virtue_ar: "من قالها حين يصبح فقد أدى شكر يومه، ومن قالها حين يمسي فقد أدى شكر ليلته.",
-                virtue_en: "Whoever recites this in the morning has completed the thankfulness of the day, and whoever recites it in the evening has completed the thankfulness of the night. [Abu Dawud]"
-            },
-            {
-                id: 'm6',
-                arabic: "حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ، عَلَيْهِ تَوَكَّلْتُ، وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ",
-                transliteration: "HasbiyAllahu la ilaha illa Huwa, 'alayhi tawakkaltu, wa Huwa Rabbul-'Arshil-'Adheem.",
-                translation: "Allah is sufficient for me. There is none worthy of worship but Him. I have placed my trust in Him, He is Lord of the Majestic Throne.",
-                count: 7, read: 0,
-                virtue_ar: "من قالها حين يصبح وحين يمسي سبع مرات كفاه الله ما أهمه من أمر الدنيا والآخرة.",
-                virtue_en: "Whoever says this seven times in the morning or evening, Allah will grant whatever he desires from this world or the next. [Ibn As-Sunni]"
-            },
-            {
-                id: 'm7',
-                arabic: "اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ، وَإِلَيْكَ النُّشُورُ",
-                transliteration: "Allahumma bika asbahna, wa bika amsayna, wa bika nahya, wa bika namut, wa ilaykan-nushur.",
-                translation: "O Allah, by You we have reached the morning, and by You we have reached the evening, by You we live and by You we die, and to You is the resurrection.",
-                count: 1, read: 0,
-                virtue_ar: "دعاء شامل يبدأ به المسلم يومه بالتوكل على الله.",
-                virtue_en: "A comprehensive supplication acknowledging Allah's power over life, death, and our daily affairs, starting the day with complete reliance on Him."
-            },
-            {
-                id: 'm8',
-                arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَالْعَجْزِ وَالْكَسَلِ، وَالْبُخْلِ وَالْجُبْنِ، وَضَلَعِ الدَّيْنِ، وَغَلَبَةِ الرِّجَالِ",
-                transliteration: "Allahumma inni a'udhu bika minal-hammi wal-hazan, wal-'ajzi wal-kasal, wal-bukhli wal-jubn, wa dala'id-dayn, wa ghalabatir-rijal.",
-                translation: "O Allah, I seek refuge in You from anxiety and sorrow, weakness and laziness, miserliness and cowardice, the burden of debts and from being overpowered by men.",
-                count: 1, read: 0,
-                virtue_ar: "دعاء نبوي للوقاية من الهموم والمشاكل النفسية والجسدية.",
-                virtue_en: "A powerful prayer taught by the Prophet (ﷺ) to seek refuge from common ailments of the heart and soul, such as anxiety, laziness, and debt."
-            },
-            {
-                id: 'm9',
-                arabic: "اللَّهُمَّ أَنْتَ رَبِّي، لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ لَكَ بِذَنْبِي، فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ",
-                transliteration: "Allahumma Anta Rabbi la ilaha illa Anta, khalaqtani wa ana 'abduk, wa ana 'ala 'ahdika wa wa'dika mastata't, a'udhu bika min sharri ma sana't, abu'u laka bini'matika 'alayya, wa abu'u laka bidhanbi faghfirli fa'innahu la yaghfirudh-dhunuba illa Anta.",
-                translation: "The Master of seeking forgiveness (Sayyid al-Istighfar).",
-                count: 1, read: 0,
-                virtue_ar: "قال صلى الله عليه وسلم: 'من قاله موقناً به حين يمسي فمات من ليلته دخل الجنة، ومن قاله موقناً به حين يصبح فمات من يومه دخل الجنة.'",
-                virtue_en: "The Prophet (ﷺ) said: 'Whoever says it during the day with firm faith in it and dies on that day before the evening, he will be from the people of Paradise; and whoever says it in the night with firm faith in it and dies before the morning, he will be from the people of Paradise.' [Bukhari]"
-            },
-             {
-                id: 'm10',
-                arabic: "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ، اللَّهُمَّ بَارِكْ عَلَى مُحَمَّdٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ",
-                transliteration: "Allahumma salli 'ala Muhammadin wa 'ala aali Muhammadin kamaa sallayta 'ala Ibraheema wa 'ala aali Ibraheema, innaka Hameedun Majeed. Allahumma baarik 'ala Muhammadin wa 'ala aali Muhammadin kamaa baarakta 'ala Ibraheema wa 'ala aali Ibraheema, innaka Hameedun Majeed.",
-                translation: "O Allah, bestow Your favor on Muhammad and on the family of Muhammad as You have bestowed Your favor on Ibrahim and on the family of Ibrahim, You are Praiseworthy, Most Glorious. O Allah, bless Muhammad and the family of Muhammad as You have blessed Ibrahim and the family of Ibrahim, You are Praiseworthy, Most Glorious.",
-                count: 10, read: 0,
-                virtue_ar: "قال صلى الله عليه وسلم: 'من صلى عليّ حين يصبح عشراً وحين يمسي عشراً أدركته شفاعتي يوم القيامة.'",
-                virtue_en: "The Prophet (ﷺ) said: 'Whoever sends blessings upon me ten times in the morning and ten times in the evening will have my intercession on the Day of Resurrection.' [At-Tabarani]"
-            },
-            {
-                id: 'm11',
-                arabic: "أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ",
-                transliteration: "Astaghfirullaha wa atubu ilayh.",
-                translation: "I seek the forgiveness of Allah and repent to Him.",
-                count: 100, read: 0,
-                virtue_ar: "قال رسول الله صلى الله عليه وسلم: 'والله إني لأستغفر الله وأتوب إليه في اليوم أكثر من سبعين مرة.'",
-                virtue_en: "Seeking forgiveness is a means of purifying oneself from sins. The Prophet (ﷺ) himself used to say this more than seventy times a day. [Bukhari]"
-            }
+            { id: 'm1', arabic: "اللَّهُ لَا إِلَـٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ", transliteration: "Allahu la ilaha illa Huwa, Al-Hayyul-Qayyum. La ta'khudhuhu sinatun wa la nawm. Lahu ma fis-samawati wa ma fil-'ard. Man dhal-ladhi yashfa'u 'indahu illa bi-idhnihi. Ya'lamu ma bayna aydihim wa ma khalfahum. Wa la yuhituna bi shay'in min 'ilmihi illa bima sha'. Wasi'a kursiyyuhus-samawati wal-'ard. Wa la ya'uduhu hifdhuhuma. Wa Huwal-'Aliyyul-'Adheem.", translation: "Ayat al-Kursi [Al-Baqarah: 255]", count: 1, read: 0, virtue_ar: "من قالها حين يصبح أجير من الجن حتى يمسي، ومن قالها حين يمسي أجير منهم حتى يصبح.", virtue_en: "Whoever recites this in the morning will be protected from the jinn until the evening, and whoever recites it in the evening will be protected until the morning. [Al-Hakim]" },
+            { id: 'm2', isComplex: true, parts: [ { title_ar: "سورة الإخلاص:", arabic: "قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ", title_en: "Surah Al-Ikhlas:", transliteration: "Qul huwa Allahu ahad. Allahu assamad. Lam yalid wa lam yoolad. Wa lam yakun lahu kufuwan ahad." }, { title_ar: "سورة الفلق:", arabic: "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۝ مِن شَرِّ مَا خَلَقَ ۝ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ ۝ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۝ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ", title_en: "Surah Al-Falaq:", transliteration: "Qul a'udhu birabbi alfalaq. Min sharri ma khalaq. Wa min sharri ghasiqin idha waqab. Wa min sharri annaffathati fee al'uqad. Wa min sharri hasidin idha hasad." }, { title_ar: "سورة الناس:", arabic: "قُلْ أَعُوذُ بِرَبِّ النَّاسِ ۝ مَلِكِ النَّاسِ ۝ إِلَٰهِ النَّاسِ ۝ مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۝ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ۝ مِنَ الْجِنَّةِ وَالنَّاسِ", title_en: "Surah An-Nas:", transliteration: "Qul a'udhu birabbi annas. Maliki annas. Ilahi annas. Min sharri alwaswasi alkhannas. Alladhee yuwaswisu fee sudoori annas. Mina aljinnati wannas." } ], translation: "The three chapters of protection (Al-Mu'awwidhat).", count: 3, read: 0, virtue_ar: "قال رسول الله صلى الله عليه وسلم: 'قل هو الله أحد والمعوذتين حين تمسي وحين تصبح ثلاث مرات تكفيك من كل شيء.'", virtue_en: "The Messenger of Allah (ﷺ) said: 'Recite them three times in the morning and evening; they will suffice you against everything.' [Abu Dawud, Tirmidhi]" },
+            { id: 'm3', arabic: "رَضِيتُ بِاللَّهِ رَبًّا، وَبِالإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا", transliteration: "Raditu billahi Rabba, wa bil-Islami dina, wa bi Muhammadin sallallahu 'alayhi wa sallama nabiyya.", translation: "I am pleased with Allah as my Lord, with Islam as my religion and with Muhammad (ﷺ) as my Prophet.", count: 3, read: 0, virtue_ar: "قال رسول الله صلى الله عليه وسلم: 'من قالها ثلاثاً حين يصبح وحين يمسي كان حقاً على الله أن يرضيه يوم القيامة.'", virtue_en: "The Messenger of Allah (ﷺ) said: 'Allah has promised that anyone who says this three times every morning or evening will be pleased on the Day of Resurrection.' [Ahmad, Tirmidhi]" },
+            { id: 'm4', arabic: "اللَّهُمَّ إِنِّي أَصْبَحْتُ أُشْهِدُكَ، وَأُشْهِدُ حَمَلَةَ عَرْشِكَ، وَمَلَائِكَتَكَ، وَجَمِيعَ خَلْقِكَ، أَنَّكَ أَنْتَ اللَّهُ، لَا إِلَهَ إِلَّا أَنْتَ، وَحْدَكَ لَا شَرِيكَ لَكَ، وَأَنَّ مُحَمَّدًا عَبْدُكَ وَرَسُولُكَ", transliteration: "Allahumma inni asbahtu ush-hiduka, wa ush-hidu hamalata 'arshika, wa mala'ikataka, wa jami'a khalqika, annaka Antallah, la ilaha illa Anta, wahdaka la sharika lak, wa anna Muhammadan 'abduka wa rasuluk.", translation: "O Allah, I have reached the morning and I call You, the bearers of Your Throne, Your angels, and all of Your creation to witness that You are Allah, none has the right to be worshipped but You, alone, without partner.", count: 4, read: 0, virtue_ar: "من قالها حين يصبح أو يمسي أربع مرات أعتقه الله من النار.", virtue_en: "Whoever says this four times in the morning or evening, Allah will grant him salvation from the Hellfire. [Abu Dawud]" },
+            { id: 'm5', arabic: "اللَّهُمَّ مَا أَصْبَحَ بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ، فَمِنْكَ وَحْدَكَ لَا شَرِيكَ لَكَ، فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ", transliteration: "Allahumma ma asbaha bi min ni'matin aw bi ahadin min khalqika, fa minka wahdaka la sharika lak, falakal-hamdu wa lakash-shukr.", translation: "O Allah, whatever blessing has been received by me or any of Your creation this morning is from You alone. For You is all praise and for You is all thanks.", count: 1, read: 0, virtue_ar: "من قالها حين يصبح فقد أدى شكر يومه، ومن قالها حين يمسي فقد أدى شكر ليلته.", virtue_en: "Whoever recites this in the morning has completed the thankfulness of the day. [Abu Dawud]" },
+            { id: 'm6', arabic: "حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ، عَلَيْهِ تَوَكَّلْتُ، وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ", transliteration: "HasbiyAllahu la ilaha illa Huwa, 'alayhi tawakkaltu, wa Huwa Rabbul-'Arshil-'Adheem.", translation: "Allah is sufficient for me. There is none worthy of worship but Him. I have placed my trust in Him, He is Lord of the Majestic Throne.", count: 7, read: 0, virtue_ar: "من قالها حين يصبح وحين يمسي سبع مرات كفاه الله ما أهمه من أمر الدنيا والآخرة.", virtue_en: "Whoever says this seven times in the morning or evening, Allah will grant whatever he desires from this world or the next. [Ibn As-Sunni]" },
+            { id: 'm7', arabic: "اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ، وَإِلَيْكَ النُّشُورُ", transliteration: "Allahumma bika asbahna, wa bika amsayna, wa bika nahya, wa bika namut, wa ilaykan-nushur.", translation: "O Allah, by You we have reached the morning, by You we live and by You we die, and to You is the resurrection.", count: 1, read: 0, virtue_ar: "دعاء شامل يبدأ به المسلم يومه بالتوكل على الله.", virtue_en: "A comprehensive supplication acknowledging Allah's power over life, death, and our daily affairs, starting the day with complete reliance on Him." },
+            { id: 'm8', arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَالْعَجْزِ وَالْكَسَلِ، وَالْبُخْلِ وَالْجُبْنِ، وَضَلَعِ الدَّيْنِ، وَغَلَبَةِ الرِّجَالِ", transliteration: "Allahumma inni a'udhu bika minal-hammi wal-hazan, wal-'ajzi wal-kasal, wal-bukhli wal-jubn, wa dala'id-dayn, wa ghalabatir-rijal.", translation: "O Allah, I seek refuge in You from anxiety and sorrow, weakness and laziness, miserliness and cowardice, the burden of debts and from being overpowered by men.", count: 1, read: 0, virtue_ar: "دعاء نبوي للوقاية من الهموم والمشاكل النفسية والجسدية.", virtue_en: "A powerful prayer taught by the Prophet (ﷺ) to seek refuge from common ailments of the heart and soul. [Bukhari, Muslim]" },
+            { id: 'm9', arabic: "اللَّهُمَّ أَنْتَ رَبِّي، لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ لَكَ بِذَنْبِي، فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ", transliteration: "Allahumma Anta Rabbi la ilaha illa Anta, khalaqtani wa ana 'abduk, wa ana 'ala 'ahdika wa wa'dika mastata't, a'udhu bika min sharri ma sana't, abu'u laka bini'matika 'alayya, wa abu'u laka bidhanbi faghfirli fa'innahu la yaghfirudh-dhunuba illa Anta.", translation: "The Master of seeking forgiveness (Sayyid al-Istighfar).", count: 1, read: 0, virtue_ar: "قال صلى الله عليه وسلم: 'من قاله موقناً به حين يمسي فمات من ليلته دخل الجنة.'", virtue_en: "The Prophet (ﷺ) said: 'Whoever says it during the day with firm faith and dies before the evening will be from the people of Paradise.' [Bukhari]" },
+            { id: 'm10', arabic: "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ، اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ", transliteration: "Allahumma salli 'ala Muhammadin wa 'ala aali Muhammadin kamaa sallayta 'ala Ibraheema wa 'ala aali Ibraheema, innaka Hameedun Majeed.", translation: "O Allah, bestow Your favor on Muhammad and on the family of Muhammad as You have bestowed Your favor on Ibrahim and on the family of Ibrahim.", count: 10, read: 0, virtue_ar: "قال صلى الله عليه وسلم: 'من صلى عليّ حين يصبح عشراً وحين يمسي عشراً أدركته شفاعتي يوم القيامة.'", virtue_en: "The Prophet (ﷺ) said: 'Whoever sends blessings upon me ten times in the morning and evening will have my intercession on the Day of Resurrection.' [At-Tabarani]" },
+            { id: 'm11', arabic: "أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ", transliteration: "Astaghfirullaha wa atubu ilayh.", translation: "I seek the forgiveness of Allah and repent to Him.", count: 100, read: 0, virtue_ar: "قال رسول الله صلى الله عليه وسلم: 'والله إني لأستغفر الله وأتوب إليه في اليوم أكثر من سبعين مرة.'", virtue_en: "The Prophet (ﷺ) himself used to say this more than seventy times a day. [Bukhari]" }
         ]
     },
     evening: {
-        title: 'Evening',
-        trackProgress: true,
+        title: 'Evening', trackProgress: true,
         items: [
-            {
-                id: 'e1',
-                arabic: "اللَّهُ لَا إِلَـٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",
-                transliteration: "Allahu la ilaha illa Huwa, Al-Hayyul-Qayyum. La ta'khudhuhu sinatun wa la nawm. Lahu ma fis-samawati wa ma fil-'ard. Man dhal-ladhi yashfa'u 'indahu illa bi-idhnihi. Ya'lamu ma bayna aydihim wa ma khalfahum. Wa la yuhituna bi shay'in min 'ilmihi illa bima sha'. Wasi'a kursiyyuhus-samawati wal-'ard. Wa la ya'uduhu hifdhuhuma. Wa Huwal-'Aliyyul-'Adheem.",
-                translation: "Ayat al-Kursi [Al-Baqarah: 255]",
-                count: 1, read: 0,
-                virtue_ar: "من قالها حين يصبح أجير من الجن حتى يمسي، ومن قالها حين يمسي أجير منهم حتى يصبح.",
-                virtue_en: "Whoever recites this in the morning will be protected from the jinn until the evening, and whoever recites it in the evening will be protected from them until the morning. [Al-Hakim]"
-            },
-            {
-                id: 'e2',
-                isComplex: true,
-                parts: [ { title_ar: "سورة الإخلاص:", arabic: "قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ", title_en: "Surah Al-Ikhlas:", transliteration: "Qul huwa Allahu ahad. Allahu assamad. Lam yalid wa lam yoolad. Wa lam yakun lahu kufuwan ahad." }, { title_ar: "سورة الفلق:", arabic: "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۝ مِن شَرِّ مَا خَلَقَ ۝ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ ۝ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۝ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ", title_en: "Surah Al-Falaq:", transliteration: "Qul a'udhu birabbi alfalaq. Min sharri ma khalaq. Wa min sharri ghasiqin idha waqab. Wa min sharri annaffathati fee al'uqad. Wa min sharri hasidin idha hasad." }, { title_ar: "سورة الناس:", arabic: "قُلْ أَعُوذُ بِرَبِّ النَّاسِ ۝ مَلِكِ النَّاسِ ۝ إِلَٰهِ النَّاسِ ۝ مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۝ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ۝ مِنَ الْجِنَّةِ وَالنَّاسِ", title_en: "Surah An-Nas:", transliteration: "Qul a'udhu birabbi annas. Maliki annas. Ilahi annas. Min sharri alwaswasi alkhannas. Alladhee yuwaswisu fee sudoori annas. Mina aljinnati wannas." } ],
-                translation: "The three chapters of protection (Al-Mu'awwidhat).",
-                count: 3, read: 0,
-                virtue_ar: "قال رسول الله صلى الله عليه وسلم: 'قل هو الله أحد والمعوذتين حين تمسي وحين تصبح ثلاث مرات تكفيك من كل شيء.'",
-                virtue_en: "The Messenger of Allah (ﷺ) said: 'Recite them three times in the morning and evening; they will suffice you against everything.' [Abu Dawud, Tirmidhi]"
-            },
-            {
-                id: 'e3',
-                arabic: "رَضِيتُ بِاللَّهِ رَبًّا، وَبِالإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا",
-                transliteration: "Raditu billahi Rabba, wa bil-Islami dina, wa bi Muhammadin sallallahu 'alayhi wa sallama nabiyya.",
-                translation: "I am pleased with Allah as my Lord, with Islam as my religion and with Muhammad (ﷺ) as my Prophet.",
-                count: 3, read: 0,
-                virtue_ar: "قال رسول الله صلى الله عليه وسلم: 'من قالها ثلاثاً حين يصبح وحين يمسي كان حقاً على الله أن يرضيه يوم القيامة.'",
-                virtue_en: "The Messenger of Allah (ﷺ) said: 'Allah has promised that anyone who says this three times every morning or evening will be pleased on the Day of Resurrection.' [Ahmad, Tirmidhi]"
-            },
-            {
-                id: 'e4',
-                arabic: "اللَّهُمَّ إِنِّي أَمْسَيْتُ أُشْهِدُكَ، وَأُشْهِدُ حَمَلَةَ عَرْشِكَ، وَمَلَائِكَتَكَ، وَجَمِيعَ خَلْقِكَ، أَنَّكَ أَنْتَ اللَّهُ، لَا إِلَهَ إِلَّا أَنْتَ، وَحْدَكَ لَا شَرِيكَ لَكَ، وَأَنَّ مُحَمَّدًا عَبْدُكَ وَرَسُولُكَ",
-                transliteration: "Allahumma inni amsaytu ush-hiduka, wa ush-hidu hamalata 'arshika, wa mala'ikataka, wa jami'a khalqika, annaka Antallah, la ilaha illa Anta, wahdaka la sharika lak, wa anna Muhammadan 'abduka wa rasuluk.",
-                translation: "O Allah, I have reached the evening and I call You, the bearers of Your Throne, Your angels, and all of Your creation to witness that You are Allah, none has the right to be worshipped but You, alone, without partner, and that Muhammad is Your Servant and Messenger.",
-                count: 4, read: 0,
-                virtue_ar: "من قالها حين يصبح أو يمسي أربع مرات أعتقه الله من النار.",
-                virtue_en: "Whoever says this four times in the morning or evening, Allah will grant him salvation from the Hellfire. [Abu Dawud]"
-            },
-            {
-                id: 'e5',
-                arabic: "اللَّهُمَّ مَا أَمْسَى بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ، فَمِنْكَ وَحْدَكَ لَا شَرِيكَ لَكَ، فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ",
-                transliteration: "Allahumma ma amsa bi min ni'matin aw bi ahadin min khalqika, fa minka wahdaka la sharika lak, falakal-hamdu wa lakash-shukr.",
-                translation: "O Allah, whatever blessing has been received by me or any of Your creation this evening is from You alone, You have no partner. For You is all praise and for You is all thanks.",
-                count: 1, read: 0,
-                virtue_ar: "من قالها حين يصبح فقد أدى شكر يومه، ومن قالها حين يمسي فقد أدى شكر ليلته.",
-                virtue_en: "Whoever recites this in the morning has completed the thankfulness of the day, and whoever recites it in the evening has completed the thankfulness of the night. [Abu Dawud]"
-            },
-            {
-                id: 'e6',
-                arabic: "حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ، عَلَيْهِ تَوَكَّلْتُ، وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ",
-                transliteration: "HasbiyAllahu la ilaha illa Huwa, 'alayhi tawakkaltu, wa Huwa Rabbul-'Arshil-'Adheem.",
-                translation: "Allah is sufficient for me. There is none worthy of worship but Him. I have placed my trust in Him, He is Lord of the Majestic Throne.",
-                count: 7, read: 0,
-                virtue_ar: "من قالها حين يصبح وحين يمسي سبع مرات كفاه الله ما أهمه من أمر الدنيا والآخرة.",
-                virtue_en: "Whoever says this seven times in the morning or evening, Allah will grant whatever he desires from this world or the next. [Ibn As-Sunni]"
-            },
-            {
-                id: 'e7',
-                arabic: "اللَّهُمَّ بِكَ أَمْسَيْنَا، وَبِكَ أَصْبَحْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ، وَإِلَيْكَ الْمَصِيرُ",
-                transliteration: "Allahumma bika amsayna, wa bika asbahna, wa bika nahya, wa bika namut, wa ilaykal-masir.",
-                translation: "O Allah, by You we have reached the evening, and by You we have reached the morning, by You we live and by You we die, and to You is our final return.",
-                count: 1, read: 0,
-                virtue_ar: "دعاء شامل ينهي به المسلم يومه بالتوكل على الله.",
-                virtue_en: "A comprehensive supplication acknowledging Allah's power over life, death, and our daily affairs, ending the day with complete reliance on Him."
-            },
-            {
-                id: 'e8',
-                arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَالْعَجْزِ وَالْكَسَلِ، وَالْبُخْلِ وَالْجُبْنِ، وَضَلَعِ الدَّيْنِ، وَغَلَبَةِ الرِّجَالِ",
-                transliteration: "Allahumma inni a'udhu bika minal-hammi wal-hazan, wal-'ajzi wal-kasal, wal-bukhli wal-jubn, wa dala'id-dayn, wa ghalabatir-rijal.",
-                translation: "O Allah, I seek refuge in You from anxiety and sorrow, weakness and laziness, miserliness and cowardice, the burden of debts and from being overpowered by men.",
-                count: 1, read: 0,
-                virtue_ar: "دعاء نبوي للوقاية من الهموم والمشاكل النفسية والجسدية.",
-                virtue_en: "A powerful prayer taught by the Prophet (ﷺ) to seek refuge from common ailments of the heart and soul, such as anxiety, laziness, and debt."
-            },
-            {
-                id: 'e9',
-                arabic: "اللَّهُمَّ أَنْتَ رَبِّي، لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ لَكَ بِذَنْبِي، فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ",
-                transliteration: "Allahumma Anta Rabbi la ilaha illa Anta, khalaqtani wa ana 'abduk, wa ana 'ala 'ahdika wa wa'dika mastata't, a'udhu bika min sharri ma sana't, abu'u laka bini'matika 'alayya, wa abu'u laka bidhanbi faghfirli fa'innahu la yaghfirudh-dhunuba illa Anta.",
-                translation: "The Master of seeking forgiveness (Sayyid al-Istighfar).",
-                count: 1, read: 0,
-                virtue_ar: "قال صلى الله عليه وسلم: 'من قاله موقناً به حين يمسي فمات من ليلته دخل الجنة، ومن قاله موقناً به حين يصبح فمات من يومه دخل الجنة.'",
-                virtue_en: "The Prophet (ﷺ) said: 'Whoever says it during the day with firm faith in it and dies on that day before the evening, he will be from the people of Paradise; and whoever says it in the night with firm faith in it and dies before the morning, he will be from the people of Paradise.' [Bukhari]"
-            },
-             {
-                id: 'e10',
-                arabic: "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ، اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ",
-                transliteration: "Allahumma salli 'ala Muhammadin wa 'ala aali Muhammadin kamaa sallayta 'ala Ibraheema wa 'ala aali Ibraheema, innaka Hameedun Majeed. Allahumma baarik 'ala Muhammadin wa 'ala aali Muhammadin kamaa baarakta 'ala Ibraheema wa 'ala aali Ibraheema, innaka Hameedun Majeed.",
-                translation: "O Allah, bestow Your favor on Muhammad and on the family of Muhammad as You have bestowed Your favor on Ibrahim and on the family of Ibrahim, You are Praiseworthy, Most Glorious. O Allah, bless Muhammad and the family of Muhammad as You have blessed Ibrahim and the family of Ibrahim, You are Praiseworthy, Most Glorious.",
-                count: 10, read: 0,
-                virtue_ar: "قال صلى الله عليه وسلم: 'من صلى عليّ حين يصبح عشراً وحين يمسي عشراً أدركته شفاعتي يوم القيامة.'",
-                virtue_en: "The Prophet (ﷺ) said: 'Whoever sends blessings upon me ten times in the morning and ten times in the evening will have my intercession on the Day of Resurrection.' [At-Tabarani]"
-            },
-            {
-                id: 'e11',
-                arabic: "أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ",
-                transliteration: "Astaghfirullaha wa atubu ilayh.",
-                translation: "I seek the forgiveness of Allah and repent to Him.",
-                count: 100, read: 0,
-                virtue_ar: "قال رسول الله صلى الله عليه وسلم: 'والله إني لأستغفر الله وأتوب إليه في اليوم أكثر من سبعين مرة.'",
-                virtue_en: "Seeking forgiveness is a means of purifying oneself from sins. The Prophet (ﷺ) himself used to say this more than seventy times a day. [Bukhari]"
-            }
+            { id: 'e1', arabic: "اللَّهُ لَا إِلَـٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ", transliteration: "Allahu la ilaha illa Huwa, Al-Hayyul-Qayyum...", translation: "Ayat al-Kursi [Al-Baqarah: 255]", count: 1, read: 0, virtue_ar: "من قالها حين يمسي أجير من الجن حتى يصبح.", virtue_en: "Whoever recites this in the evening will be protected from the jinn until the morning. [Al-Hakim]" },
+            { id: 'e2', isComplex: true, parts: [ { title_ar: "سورة الإخلاص:", arabic: "قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ", title_en: "Surah Al-Ikhlas:", transliteration: "Qul huwa Allahu ahad. Allahu assamad. Lam yalid wa lam yoolad. Wa lam yakun lahu kufuwan ahad." }, { title_ar: "سورة الفلق:", arabic: "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۝ مِن شَرِّ مَا خَلَقَ ۝ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ ۝ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۝ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ", title_en: "Surah Al-Falaq:", transliteration: "Qul a'udhu birabbi alfalaq..." }, { title_ar: "سورة الناس:", arabic: "قُلْ أَعُوذُ بِرَبِّ النَّاسِ ۝ مَلِكِ النَّاسِ ۝ إِلَٰهِ النَّاسِ ۝ مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۝ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ۝ مِنَ الْجِنَّةِ وَالنَّاسِ", title_en: "Surah An-Nas:", transliteration: "Qul a'udhu birabbi annas..." } ], translation: "The three chapters of protection (Al-Mu'awwidhat).", count: 3, read: 0, virtue_ar: "قال رسول الله صلى الله عليه وسلم: 'قل هو الله أحد والمعوذتين حين تمسي وحين تصبح ثلاث مرات تكفيك من كل شيء.'", virtue_en: "The Messenger of Allah (ﷺ) said: 'Recite them three times in the morning and evening; they will suffice you against everything.' [Abu Dawud, Tirmidhi]" },
+            { id: 'e3', arabic: "رَضِيتُ بِاللَّهِ رَبًّا، وَبِالإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا", transliteration: "Raditu billahi Rabba, wa bil-Islami dina, wa bi Muhammadin sallallahu 'alayhi wa sallama nabiyya.", translation: "I am pleased with Allah as my Lord, with Islam as my religion and with Muhammad (ﷺ) as my Prophet.", count: 3, read: 0, virtue_ar: "من قالها ثلاثاً حين يمسي كان حقاً على الله أن يرضيه يوم القيامة.", virtue_en: "Allah has promised that anyone who says this three times every evening will be pleased on the Day of Resurrection. [Ahmad, Tirmidhi]" },
+            { id: 'e4', arabic: "اللَّهُمَّ إِنِّي أَمْسَيْتُ أُشْهِدُكَ، وَأُشْهِدُ حَمَلَةَ عَرْشِكَ، وَمَلَائِكَتَكَ، وَجَمِيعَ خَلْقِكَ، أَنَّكَ أَنْتَ اللَّهُ، لَا إِلَهَ إِلَّا أَنْتَ، وَحْدَكَ لَا شَرِيكَ لَكَ، وَأَنَّ مُحَمَّدًا عَبْدُكَ وَرَسُولُكَ", transliteration: "Allahumma inni amsaytu ush-hiduka...", translation: "O Allah, I have reached the evening and I call You, the bearers of Your Throne, Your angels, and all of Your creation to witness that You are Allah, none has the right to be worshipped but You.", count: 4, read: 0, virtue_ar: "من قالها حين يمسي أربع مرات أعتقه الله من النار.", virtue_en: "Whoever says this four times in the evening, Allah will grant him salvation from the Hellfire. [Abu Dawud]" },
+            { id: 'e5', arabic: "اللَّهُمَّ مَا أَمْسَى بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ، فَمِنْكَ وَحْدَكَ لَا شَرِيكَ لَكَ، فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ", transliteration: "Allahumma ma amsa bi min ni'matin aw bi ahadin min khalqika, fa minka wahdaka la sharika lak, falakal-hamdu wa lakash-shukr.", translation: "O Allah, whatever blessing has been received by me or any of Your creation this evening is from You alone. For You is all praise and for You is all thanks.", count: 1, read: 0, virtue_ar: "من قالها حين يمسي فقد أدى شكر ليلته.", virtue_en: "Whoever recites this in the evening has completed the thankfulness of the night. [Abu Dawud]" },
+            { id: 'e6', arabic: "حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ، عَلَيْهِ تَوَكَّلْتُ، وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ", transliteration: "HasbiyAllahu la ilaha illa Huwa, 'alayhi tawakkaltu, wa Huwa Rabbul-'Arshil-'Adheem.", translation: "Allah is sufficient for me. There is none worthy of worship but Him. I have placed my trust in Him, He is Lord of the Majestic Throne.", count: 7, read: 0, virtue_ar: "من قالها سبع مرات كفاه الله ما أهمه.", virtue_en: "Whoever says this seven times in the morning or evening, Allah will grant whatever he desires. [Ibn As-Sunni]" },
+            { id: 'e7', arabic: "اللَّهُمَّ بِكَ أَمْسَيْنَا، وَبِكَ أَصْبَحْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ، وَإِلَيْكَ الْمَصِيرُ", transliteration: "Allahumma bika amsayna, wa bika asbahna, wa bika nahya, wa bika namut, wa ilaykal-masir.", translation: "O Allah, by You we have reached the evening, by You we live and by You we die, and to You is our final return.", count: 1, read: 0, virtue_ar: "دعاء شامل ينهي به المسلم يومه.", virtue_en: "A comprehensive supplication ending the day with complete reliance on Allah." },
+            { id: 'e8', arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَالْعَجْزِ وَالْكَسَلِ، وَالْبُخْلِ وَالْجُبْنِ، وَضَلَعِ الدَّيْنِ، وَغَلَبَةِ الرِّجَالِ", transliteration: "Allahumma inni a'udhu bika minal-hammi wal-hazan...", translation: "O Allah, I seek refuge in You from anxiety and sorrow, weakness and laziness, miserliness and cowardice, the burden of debts and from being overpowered by men.", count: 1, read: 0, virtue_ar: "دعاء نبوي للوقاية من الهموم.", virtue_en: "A powerful prayer taught by the Prophet (ﷺ) to seek refuge from common ailments of the heart and soul. [Bukhari, Muslim]" },
+            { id: 'e9', arabic: "اللَّهُمَّ أَنْتَ رَبِّي، لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ لَكَ بِذَنْبِي، فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ", transliteration: "Allahumma Anta Rabbi la ilaha illa Anta...", translation: "The Master of seeking forgiveness (Sayyid al-Istighfar).", count: 1, read: 0, virtue_ar: "من قاله موقناً به حين يمسي فمات من ليلته دخل الجنة.", virtue_en: "Whoever says it in the night with firm faith and dies before the morning will be from the people of Paradise. [Bukhari]" },
+            { id: 'e10', arabic: "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ، اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ", transliteration: "Allahumma salli 'ala Muhammadin wa 'ala aali Muhammadin...", translation: "O Allah, bestow Your favor on Muhammad and on the family of Muhammad as You have bestowed Your favor on Ibrahim.", count: 10, read: 0, virtue_ar: "من صلى عليّ عشراً حين يمسي أدركته شفاعتي يوم القيامة.", virtue_en: "Whoever sends blessings upon me ten times in the evening will have my intercession on the Day of Resurrection. [At-Tabarani]" },
+            { id: 'e11', arabic: "أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ", transliteration: "Astaghfirullaha wa atubu ilayh.", translation: "I seek the forgiveness of Allah and repent to Him.", count: 100, read: 0, virtue_ar: "قال رسول الله صلى الله عليه وسلم: 'والله إني لأستغفر الله وأتوب إليه في اليوم أكثر من سبعين مرة.'", virtue_en: "The Prophet (ﷺ) himself used to say this more than seventy times a day. [Bukhari]" }
         ]
     },
     afterSalah: {
-        title: 'After Salah',
-        trackProgress: false,
+        title: 'After Salah', trackProgress: false,
         items: [
-             {
-                id: 'as1',
-                arabic: "أَسْتَغْفِرُ اللَّهَ (ثلاثاً) اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ، تَبَارَكْتَ يَا ذَا الْجَلَالِ وَالْإِكْرَامِ",
-                transliteration: "Astaghfirullah (3 times). Allahumma Antas-Salam wa minkas-salam, tabarakta ya Dhal-Jalali wal-Ikram.",
-                translation: "I seek the forgiveness of Allah (three times). O Allah, You are Peace and from You comes peace. Blessed are You, O Owner of majesty and honor.",
-                virtue_ar: "عَنْ ثَوْبَانَ قَالَ: كَانَ رَسُولُ اللَّهِ صلى الله عليه وسلم إِذَا انْصَرَفَ مِنْ صَلاَتِهِ اسْتَغْفَرَ ثَلاَثًا وَقَالَ ‏\"‏ اللَّهُمَّ أَنْتَ السَّلاَمُ وَمِنْكَ السَّلاَمُ تَبَارَكْتَ ذَا الْجَلاَلِ وَالإِكْرَامِ ‏\"‏",
-                virtue_en: "It was narrated that Thawban said: 'Whenever the Messenger of Allah (ﷺ) finished his prayer, he would seek forgiveness three times and say: 'Allahumma Antas-Salam...' (the full supplication). [Muslim]"
-             },
-             {
-                id: 'as2',
-                arabic: "لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، اللَّهُمَّ لَا مَانِعَ لِمَا أَعْطَيْتَ، وَلَا مُعْطِيَ لِمَا مَنَعْتَ، وَلَا يَنْفَعُ ذَا الْجَدِّ مِنْكَ الْجَدُّ",
-                transliteration: "La ilaha illallah wahdahu la sharika lah, lahul-mulku wa lahul-hamdu wa huwa 'ala kulli shay'in qadir. Allahumma la mani'a lima a'tayt, wa la mu'tiya lima mana't, wa la yanfa'u dhal-jaddi minkal-jadd.",
-                translation: "There is none worthy of worship but Allah alone, Who has no partner, His is the dominion and to Him belongs all praise, and He is able to do all things. O Allah, none can withhold what You have given and none can give what You have withheld, and the might of the mighty person cannot benefit him against You.",
-                virtue_ar: "عَنِ الْمُغِيرَةِ بْنِ شُعْبَةَ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم كَانَ يَقُولُ فِي دُبُرِ كُلِّ صَلاَةٍ إِذَا سَلَّمَ ‏\"‏ لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ...\"‏.‏",
-                virtue_en: "Al-Mughira bin Shu’ba wrote to Mu’awiya: When the Messenger of Allah (ﷺ) finished the prayer and said the taslim, he would say: (the above dhikr). [Bukhari, Muslim]"
-             },
-             {
-                id: 'as3',
-                arabic: "سُبْحَانَ اللَّهِ (33 مرة) الْحَمْدُ لِلَّهِ (33 مرة) اللَّهُ أَكْبَرُ (33 مرة) ثُمَّ يَقُولُ تَمَامَ الْمِائَةِ: لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
-                transliteration: "SubhanAllah (33 times), Alhamdulillah (33 times), Allahu Akbar (33 times), then complete the hundred with: La ilaha illallah wahdahu la sharika lah, lahul-mulku wa lahul-hamdu wa huwa 'ala kulli shay'in qadir.",
-                translation: "Glory is to Allah (33 times), Praise is to Allah (33 times), Allah is the Most Great (33 times), then complete the hundred with: There is none worthy of worship but Allah alone, Who has no partner, His is the dominion and to Him belongs all praise, and He is able to do all things.",
-                virtue_ar: "عَنْ أَبِي هُرَيْرَةَ، عَنْ رَسُولِ اللَّهِ صلى الله عليه وسلم ‏\"‏ مَنْ سَبَّحَ اللَّهَ فِي دُبُرِ كُلِّ صَلاَةٍ ثَلاَثًا وَثَلاَثِينَ... غُفِرَتْ خَطَايَاهُ وَإِنْ كَانَتْ مِثْلَ زَبَدِ الْبَحْرِ ‏\"‏ ‏.‏",
-                virtue_en: "The Messenger of Allah (ﷺ) said: 'Whoever glorifies Allah (says SubhanAllah) thirty-three times immediately after each prayer... his sins will be forgiven even if they are like the foam of the sea.' [Muslim]"
-             },
-             {
-                id: 'as4',
-                arabic: "آيَةُ الْكُرْسِيِّ: اللَّهُ لَا إِلَـٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ...",
-                transliteration: "Ayat al-Kursi: Allahu la ilaha illa Huwa...",
-                translation: "Recitation of Ayat al-Kursi [Al-Baqarah: 255].",
-                virtue_ar: "مَنْ قَرَأَ آيَةَ الْكُرْسِيِّ دُبُرَ كُلِّ صَلَاةٍ مَكْتُوبَةٍ لَمْ يَمْنَعْهُ مِنْ دُخُولِ الْجَنَّةِ إِلَّا أَنْ يَمُوتَ.",
-                virtue_en: "Whoever recites Ayat al-Kursi after each prescribed prayer, nothing will be between him and Paradise except death. [An-Nasa'i]"
-             },
-             {
-                id: 'as5',
-                arabic: "سورة الإخلاص، سورة الفلق، سورة الناس (بعد كل صلاة)",
-                transliteration: "Surah Al-Ikhlas, Surah Al-Falaq, Surah An-Nas (After every prayer).",
-                translation: "Recitation of Surah Al-Ikhlas, Al-Falaq, and An-Nas.",
-                virtue_ar: "أَمَرَنِي رَسُولُ اللَّهِ صلى الله عليه وسلم أَنْ أَقْرَأَ الْمُعَوِّذَاتِ دُبُرَ كُلِّ صَلاَةٍ.",
-                virtue_en: "The Messenger of Allah (ﷺ) commanded to recite Al-Mu'awwidhat (Surah Al-Ikhlas, Al-Falaq, and An-Nas) after every prayer. [Abu Dawud, Tirmidhi]"
-             }
+            { id: 'as1', arabic: "أَسْتَغْفِرُ اللَّهَ (ثلاثاً) اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ، تَبَارَكْتَ يَا ذَا الْجَلَالِ وَالْإِكْرَامِ", transliteration: "Astaghfirullah (3 times). Allahumma Antas-Salam wa minkas-salam, tabarakta ya Dhal-Jalali wal-Ikram.", translation: "I seek the forgiveness of Allah (three times). O Allah, You are Peace and from You comes peace.", virtue_ar: "كَانَ رَسُولُ اللَّهِ إِذَا انْصَرَفَ مِنْ صَلاَتِهِ اسْتَغْفَرَ ثَلاَثًا وَقَالَ: اللَّهُمَّ أَنْتَ السَّلاَمُ...", virtue_en: "Whenever the Messenger of Allah (ﷺ) finished his prayer, he would seek forgiveness three times and say this supplication. [Muslim]" },
+            { id: 'as2', arabic: "لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، اللَّهُمَّ لَا مَانِعَ لِمَا أَعْطَيْتَ، وَلَا مُعْطِيَ لِمَا مَنَعْتَ، وَلَا يَنْفَعُ ذَا الْجَدِّ مِنْكَ الْجَدُّ", transliteration: "La ilaha illallah wahdahu la sharika lah, lahul-mulku wa lahul-hamdu wa huwa 'ala kulli shay'in qadir. Allahumma la mani'a lima a'tayt...", translation: "There is none worthy of worship but Allah alone, Who has no partner. His is the dominion and to Him belongs all praise, and He is able to do all things.", virtue_ar: "كَانَ رَسُولُ اللَّهِ يَقُولُ فِي دُبُرِ كُلِّ صَلاَةٍ إِذَا سَلَّمَ: لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ...", virtue_en: "The Messenger of Allah (ﷺ) would say this after each prayer. [Bukhari, Muslim]" },
+            { id: 'as3', arabic: "سُبْحَانَ اللَّهِ (٣٣ مرة) ، الْحَمْدُ لِلَّهِ (٣٣ مرة) ، اللَّهُ أَكْبَرُ (٣٣ مرة) ، ثُمَّ: لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ", transliteration: "SubhanAllah (33×), Alhamdulillah (33×), Allahu Akbar (33×), then: La ilaha illallah wahdahu la sharika lah...", translation: "Glory is to Allah (33×), Praise is to Allah (33×), Allah is the Most Great (33×), then complete the hundred with the declaration of His oneness.", virtue_ar: "مَنْ سَبَّحَ اللَّهَ فِي دُبُرِ كُلِّ صَلاَةٍ ثَلاَثًا وَثَلاَثِينَ... غُفِرَتْ خَطَايَاهُ وَإِنْ كَانَتْ مِثْلَ زَبَدِ الْبَحْرِ.", virtue_en: "Whoever glorifies Allah thirty-three times after each prayer... his sins will be forgiven even if they are like the foam of the sea. [Muslim]" },
+            { id: 'as4', arabic: "آيَةُ الْكُرْسِيِّ دُبُرَ كُلِّ صَلَاةٍ مَكْتُوبَةٍ", transliteration: "Recite Ayat al-Kursi after every obligatory prayer.", translation: "Recitation of Ayat al-Kursi [Al-Baqarah: 255] after every prayer.", virtue_ar: "مَنْ قَرَأَ آيَةَ الْكُرْسِيِّ دُبُرَ كُلِّ صَلَاةٍ مَكْتُوبَةٍ لَمْ يَمْنَعْهُ مِنْ دُخُولِ الْجَنَّةِ إِلَّا أَنْ يَمُوتَ.", virtue_en: "Whoever recites Ayat al-Kursi after each obligatory prayer, nothing will prevent him from entering Paradise except death. [An-Nasa'i]" },
+            { id: 'as5', arabic: "سورة الإخلاص، سورة الفلق، سورة الناس (بعد كل صلاة)", transliteration: "Surah Al-Ikhlas, Surah Al-Falaq, Surah An-Nas (after every prayer).", translation: "Recitation of Surah Al-Ikhlas, Al-Falaq, and An-Nas after every prayer.", virtue_ar: "أَمَرَنِي رَسُولُ اللَّهِ أَنْ أَقْرَأَ الْمُعَوِّذَاتِ دُبُرَ كُلِّ صَلاَةٍ.", virtue_en: "The Messenger of Allah (ﷺ) commanded to recite Al-Mu'awwidhat after every prayer. [Abu Dawud, Tirmidhi]" }
         ]
     },
     rabbana: {
-        title: 'Rabbana Duas',
-        trackProgress: false,
+        title: 'Rabbana Duas', trackProgress: false,
         items: [
-             {
-                id: 'rb1',
-                arabic: "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
-                transliteration: "Rabbana atina fid-dunya hasanatan wa fil-akhirati hasanatan waqina 'adhaban-nar.",
-                translation: "Our Lord, give us in this world [that which is] good and in the Hereafter [that which is] good and protect us from the punishment of the Fire. [Al-Baqarah: 201]",
-                virtue_ar: "عَنْ أَنَسٍ ـ رضى الله عنه ـ قَالَ كَانَ أَكْثَرُ دُعَاءِ النَّبِيِّ صلى الله عليه وسلم ‏ \"‏ اللَّهُمَّ رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً، وَفِي الآخِرَةِ حَسَنَةً، وَقِنَا عَذَابَ النَّارِ ‏\"‏‏.‏",
-                virtue_en: "Anas (May Allah be pleased with him) reported: The most frequent invocation of The Prophet (ﷺ) was this supplication. [Bukhari and Muslim]."
-             },
-             {
-                id: 'rb2',
-                arabic: "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً ۚ إِنَّكَ أَنتَ الْوَهَّابُ",
-                transliteration: "Rabbana la tuzigh quloobana ba'da idh hadaytana wa hab lana min ladunka rahmah, innaka Antal-Wahhab.",
-                translation: "Our Lord, let not our hearts deviate after You have guided us and grant us from Yourself mercy. Indeed, You are the Bestower. [Aal-Imran: 8]",
-                virtue_ar: "هذا دعاء 'أُولُو الْأَلْبَابِ' المذكور في القرآن، يسألون الله أن يثبت قلوبهم على الهداية. [تفسير ابن كثير]",
-                virtue_en: "This is the supplication of 'those of understanding' (Ulul-Albab) mentioned in the Qur'an, who ask Allah to keep their hearts firm upon guidance. [Tafsir Ibn Kathir]"
-             },
-             {
-                id: 'rb3',
-                arabic: "رَبَّنَا اغْفِرْ لَنَا ذُنُوبَنَا وَإِسْرَافَنَا فِي أَمْرِنَا وَثَبِّتْ أَقْدَامَنَا وَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ",
-                transliteration: "Rabbana-ghfir lana dhunoobana wa israfana fi amrina wa thabbit aqdamana wansurna 'alal-qawmil-kafirin.",
-                translation: "Our Lord, forgive us our sins and the excess [committed] in our affairs and plant firmly our feet and give us victory over the disbelieving people. [Aal-Imran: 147]",
-                virtue_ar: "يخبر تعالى عن عباده المؤمنين الذين قاتلوا مع الأنبياء، أنهم دعوا بهذا الدعاء الذي يجمع بين طلب المغفرة والثبات والنصر على الأعداء. [تفسير السعدي]",
-                virtue_en: "The Qur'an mentions this as the supplication of the patient followers of past prophets who, despite facing hardships, asked Allah for forgiveness, steadfastness, and victory. [Tafsir As-Sa'di]"
-             },
-             {
-                id: 'rb4',
-                arabic: "رَبَّنَا ظَلَمْنَا أَنفُسَنَا وَإِن لَّمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ",
-                transliteration: "Rabbana zalamna anfusana wa-in lam taghfir lana wa tarhamna lanakoonanna minal-khasireen.",
-                translation: "Our Lord, we have wronged ourselves, and if You do not forgive us and have mercy upon us, we will surely be among the losers. [Al-A'raf: 23]",
-                virtue_ar: "هذه كلمات التوبة التي تلقاها آدم عليه السلام وزوجه من ربهما بعد أن أكلا من الشجرة. وهو دعاء عظيم لمن ظلم نفسه ويرجو مغفرة الله. [تفسير الطبري]",
-                virtue_en: "These are the words of repentance that Adam (peace be upon him) and his wife received from their Lord after they had erred. It is a powerful supplication for anyone who has wronged themselves and seeks Allah's forgiveness. [Tafsir Al-Tabari]"
-             },
-             {
-                id: 'rb5',
-                arabic: "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا",
-                transliteration: "Rabbana hab lana min azwajina wa dhurriyatina qurrata a'yunin waj'alna lil-muttaqina imama.",
-                translation: "Our Lord, grant us from among our wives and offspring comfort to our eyes and make us a leader for the righteous. [Al-Furqan: 74]",
-                virtue_ar: "هذا الدعاء من صفات 'عباد الرحمن' المذكورة في سورة الفرقان، حيث يسألون الله صلاح أزواجهم وذرياتهم، وأن يجعلهم قدوة للمتقين. [تفسير ابن كثير]",
-                virtue_en: "This is one of the supplications made by the 'Servants of the Most Merciful' (Ibad-ur-Rahman) described in Surah Al-Furqan. They ask Allah for righteousness not only for themselves but also for their families, aspiring to be leaders for the pious. [Tafsir Ibn Kathir]"
-             }
+            { id: 'rb1', arabic: "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ", transliteration: "Rabbana atina fid-dunya hasanatan wa fil-akhirati hasanatan waqina 'adhaban-nar.", translation: "Our Lord, give us good in this world and good in the Hereafter and protect us from the punishment of the Fire. [Al-Baqarah: 201]", virtue_ar: "كَانَ أَكْثَرُ دُعَاءِ النَّبِيِّ صلى الله عليه وسلم: رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً...", virtue_en: "The most frequent invocation of the Prophet (ﷺ) was this supplication. [Bukhari and Muslim]" },
+            { id: 'rb2', arabic: "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً ۚ إِنَّكَ أَنتَ الْوَهَّابُ", transliteration: "Rabbana la tuzigh quloobana ba'da idh hadaytana wa hab lana min ladunka rahmah, innaka Antal-Wahhab.", translation: "Our Lord, let not our hearts deviate after You have guided us and grant us from Yourself mercy. Indeed, You are the Bestower. [Aal-Imran: 8]", virtue_ar: "هذا دعاء أُولُو الْأَلْبَابِ المذكور في القرآن، يسألون الله أن يثبت قلوبهم على الهداية.", virtue_en: "This is the supplication of 'those of understanding' (Ulul-Albab) in the Qur'an, asking Allah to keep their hearts firm upon guidance. [Tafsir Ibn Kathir]" },
+            { id: 'rb3', arabic: "رَبَّنَا اغْفِرْ لَنَا ذُنُوبَنَا وَإِسْرَافَنَا فِي أَمْرِنَا وَثَبِّتْ أَقْدَامَنَا وَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ", transliteration: "Rabbana-ghfir lana dhunoobana wa israfana fi amrina wa thabbit aqdamana wansurna 'alal-qawmil-kafirin.", translation: "Our Lord, forgive us our sins and our excesses in our affairs and plant firmly our feet and give us victory. [Aal-Imran: 147]", virtue_ar: "دعاء المؤمنين الصابرين مع الأنبياء، يجمع المغفرة والثبات والنصر.", virtue_en: "The supplication of the patient followers of past prophets, combining forgiveness, steadfastness, and victory. [Tafsir As-Sa'di]" },
+            { id: 'rb4', arabic: "رَبَّنَا ظَلَمْنَا أَنفُسَنَا وَإِن لَّمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ", transliteration: "Rabbana zalamna anfusana wa-in lam taghfir lana wa tarhamna lanakoonanna minal-khasireen.", translation: "Our Lord, we have wronged ourselves, and if You do not forgive us and have mercy upon us, we will surely be among the losers. [Al-A'raf: 23]", virtue_ar: "كلمات التوبة التي تلقاها آدم عليه السلام وزوجه من ربهما.", virtue_en: "The words of repentance that Adam (peace be upon him) and his wife received from their Lord — a powerful supplication for seeking forgiveness. [Tafsir Al-Tabari]" },
+            { id: 'rb5', arabic: "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا", transliteration: "Rabbana hab lana min azwajina wa dhurriyatina qurrata a'yunin waj'alna lil-muttaqina imama.", translation: "Our Lord, grant us from among our wives and offspring comfort to our eyes and make us a leader for the righteous. [Al-Furqan: 74]", virtue_ar: "دعاء عباد الرحمن في سورة الفرقان، يسألون صلاح الأسرة والقيادة.", virtue_en: "One of the supplications made by the 'Servants of the Most Merciful' in Surah Al-Furqan, asking for righteous families. [Tafsir Ibn Kathir]" }
         ]
     },
     forgiveness: {
-        title: 'Forgiveness',
-        trackProgress: false,
+        title: 'Forgiveness', trackProgress: false,
         items: [
-            {
-                id: 'f1',
-                arabic: "أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ الَّذِي لَا إِلَهَ إِلَّا هُوَ الْحَيَّ الْقَيُّومَ وَأَتُوبُ إِلَيْهِ",
-                transliteration: "Astaghfirullahal-'Adheemal-ladhi la ilaha illa Huwal-Hayyul-Qayyum wa atubu ilaih.",
-                translation: "I seek the forgiveness of Allah the Mighty, Whom there is none worthy of worship except Him, the Living, the Eternal, and I repent unto Him.",
-                virtue_ar: "قال رسول الله صلى الله عليه وسلم: 'من قال: أستغفر الله الذي لا إله إلا هو الحي القيوم وأتوب إليه، غفر له وإن كان فر من الزحف'.",
-                virtue_en: "The Messenger of Allah (ﷺ) said: 'Whoever says (the above supplication), his sins will be forgiven even if he had fled from the battlefield.' [Abu Dawud, Tirmidhi]"
-            },
-            {
-                id: 'f2',
-                arabic: "اللَّهُمَّ أَنْتَ رَبِّي، لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ لَكَ بِذَنْبِي، فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ",
-                transliteration: "Allahumma Anta Rabbi, la ilaha illa Anta, khalaqtani wa ana 'abduk, wa ana 'ala 'ahdika wa wa'dika mastata't, a'udhu bika min sharri ma sana't, abu'u laka bini'matika 'alayya, wa abu'u laka bidhanbi faghfirli fa'innahu la yaghfirudh-dhunuba illa Anta.",
-                translation: "The Master of seeking forgiveness (Sayyid al-Istighfar).",
-                virtue_ar: "قال صلى الله عليه وسلم: 'من قاله موقناً به حين يمسي فمات من ليلته دخل الجنة، ومن قاله موقناً به حين يصبح فمات من يومه دخل الجنة.'",
-                virtue_en: "The Prophet (ﷺ) said: 'Whoever says it during the day with firm faith in it and dies on that day before the evening, he will be from the people of Paradise; and whoever says it in the night with firm faith in it and dies before the morning, he will be from the people of Paradise.' [Bukhari]"
-            },
-            {
-                id: 'f3',
-                arabic: "اللَّهُمَّ اغْفِرْ لِي خَطِيئَتِي وَجَهْلِي، وَإِسْرَافِي فِي أَمْرِي، وَمَا أَنْتَ أَعْلَمُ بِهِ مِنِّي",
-                transliteration: "Allahumma-ghfir li khati'ati wa jahli, wa israfi fi amri, wa ma Anta a'lamu bihi minni.",
-                translation: "O Allah, forgive me my sins and my ignorance, my excesses in my affairs, and whatever You know better than I.",
-                virtue_ar: "عَنْ أَبِي مُوسَى الأَشْعَرِيِّ، عَنِ النَّبِيِّ صلى الله عليه وسلم أَنَّهُ كَانَ يَدْعُو بِهَذَا الدُّعَاءِ. وهو دعاء شامل للمغفرة يعترف فيه العبد بخطئه وجهله وإسرافه.",
-                virtue_en: "Abu Musa Al-Ash'ari reported that the Prophet (ﷺ) used to supplicate with these words. This is a comprehensive supplication for forgiveness, acknowledging one's faults, ignorance, and excesses. [Bukhari, Muslim]"
-            }
+            { id: 'f1', arabic: "أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ الَّذِي لَا إِلَهَ إِلَّا هُوَ الْحَيَّ الْقَيُّومَ وَأَتُوبُ إِلَيْهِ", transliteration: "Astaghfirullahal-'Adheemal-ladhi la ilaha illa Huwal-Hayyul-Qayyum wa atubu ilaih.", translation: "I seek the forgiveness of Allah the Mighty, Whom there is none worthy of worship except Him, the Living, the Eternal, and I repent unto Him.", virtue_ar: "من قال: أستغفر الله الذي لا إله إلا هو الحي القيوم وأتوب إليه، غفر له وإن كان فر من الزحف.", virtue_en: "Whoever says this supplication will be forgiven even if he had fled from the battlefield. [Abu Dawud, Tirmidhi]" },
+            { id: 'f2', arabic: "اللَّهُمَّ أَنْتَ رَبِّي، لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ لَكَ بِذَنْبِي، فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ", transliteration: "Allahumma Anta Rabbi, la ilaha illa Anta, khalaqtani wa ana 'abduk...", translation: "The Master of seeking forgiveness (Sayyid al-Istighfar).", virtue_ar: "من قاله موقناً به دخل الجنة.", virtue_en: "Whoever says it with firm faith will be from the people of Paradise. [Bukhari]" },
+            { id: 'f3', arabic: "اللَّهُمَّ اغْفِرْ لِي خَطِيئَتِي وَجَهْلِي، وَإِسْرَافِي فِي أَمْرِي، وَمَا أَنْتَ أَعْلَمُ بِهِ مِنِّي", transliteration: "Allahumma-ghfir li khati'ati wa jahli, wa israfi fi amri, wa ma Anta a'lamu bihi minni.", translation: "O Allah, forgive me my sins and my ignorance, my excesses in my affairs, and whatever You know better than I.", virtue_ar: "عَنْ أَبِي مُوسَى الأَشْعَرِيِّ، عَنِ النَّبِيِّ أَنَّهُ كَانَ يَدْعُو بِهَذَا الدُّعَاءِ.", virtue_en: "The Prophet (ﷺ) used to supplicate with these words — a comprehensive supplication acknowledging one's faults. [Bukhari, Muslim]" }
         ]
     }
 };
 
-// This variable will hold the current state of Adhkar, including read counts.
-let adhkarData;
+// ============================================================
+//  STATE
+// ============================================================
 
-const adhkarContainer = document.getElementById('adhkar-container');
-const resetBtn = document.getElementById('reset-btn');
-const virtueModal = document.getElementById('virtue-modal');
-const modalContent = document.getElementById('modal-content');
-const modalText = document.getElementById('modal-text');
-const closeModalBtn = document.getElementById('close-modal-btn');
+let adhkarData  = {};
+let history     = {};
+let favorites   = {};
 
-// --- Progress Management ---
+let currentView      = 'home';   // 'home' | 'reader' | 'search'
+let readerCategory   = 'morning';
+let readerIndex      = 0;
 
-function saveProgress() {
-    localStorage.setItem('adhkarProgress', JSON.stringify(adhkarData));
-}
+// ============================================================
+//  CATEGORY METADATA  (icons + descriptions for home cards)
+// ============================================================
 
-function loadProgress() {
-    const savedProgress = localStorage.getItem('adhkarProgress');
-     if (savedProgress) {
-          adhkarData = JSON.parse(savedProgress);
-          // Ensure all categories exist from static data if not in saved data
-          Object.keys(staticAdhkarData).forEach(key => {
-              if (!adhkarData[key]) {
-                  adhkarData[key] = JSON.parse(JSON.stringify(staticAdhkarData[key]));
-              }
-          });
-     } else {
-          adhkarData = JSON.parse(JSON.stringify(staticAdhkarData));
-     }
-}
-
-function updateProgressBar(category) {
-    const progressBarContainer = document.getElementById('progress-bar-container');
-    const categoryData = adhkarData[category];
-
-    if (!categoryData || !categoryData.trackProgress) {
-        progressBarContainer.style.opacity = '0';
-        progressBarContainer.style.height = '0';
-        return;
-    }
-    
-    progressBarContainer.style.opacity = '1';
-    progressBarContainer.style.height = 'auto';
-
-    const adhkarList = categoryData.items;
-    const totalRequired = adhkarList.reduce((sum, dhikr) => sum + dhikr.count, 0);
-    const currentProgress = adhkarList.reduce((sum, dhikr) => sum + (dhikr.read || 0), 0);
-    const percentage = totalRequired > 0 ? Math.min((currentProgress / totalRequired) * 100, 100) : 0;
-    
-    const progressBar = document.getElementById('progress-bar');
-    if(progressBar) progressBar.style.width = `${percentage}%`;
-
-    if(percentage >= 100) markCompletion(category);
-}
-
-function resetProgress() {
-    localStorage.removeItem('adhkarProgress');
-    localStorage.removeItem('adhkarHistory'); // Also clear history
-    
-    // Explicitly reset the data in memory to its default state
-    adhkarData = JSON.parse(JSON.stringify(staticAdhkarData));
-    history = {}; // This is the fix: also clear the history from memory
-
-    const currentCategoryKey = document.querySelector('.category-btn.active').dataset.category;
-    renderAdhkar(currentCategoryKey);
-
-    const originalText = 'Reset';
-    resetBtn.disabled = true;
-    resetBtn.textContent = 'Reset!';
-    setTimeout(() => {
-        resetBtn.textContent = originalText;
-        resetBtn.disabled = false;
-    }, 2000);
-}
-
-// --- UI Rendering ---
-
-function renderAdhkar(category) {
-    adhkarContainer.innerHTML = '';
-    const categoryData = adhkarData[category];
-    if (!categoryData) return;
-    
-    const adhkarList = categoryData.items;
-    
-    adhkarList.forEach(dhikr => {
-        const card = document.createElement('div');
-        card.className = 'bg-white p-6 rounded-lg shadow-md border-l-4 border-emerald-500 fade-in adhkar-card';
-        
-        const readCount = dhikr.read || 0;
-        const isCompleted = dhikr.count && (readCount >= dhikr.count);
-
-        let contentHtml = '';
-        if (dhikr.isComplex) {
-            contentHtml = dhikr.parts.map(part => `
-                <div class="mb-4">
-                    <p dir="rtl" class="arabic-text text-gray-800 text-right"><b>${part.title_ar}</b><br>${part.arabic}</p>
-                    <p class="mt-2 text-gray-500 italic text-sm english-text transliteration-text">${part.transliteration}</p>
-                </div>
-            `).join('');
-        } else {
-            contentHtml = `
-                <p dir="rtl" class="arabic-text text-gray-800 text-right">${dhikr.arabic}</p>
-                <p class="mt-4 text-gray-500 italic text-sm english-text transliteration-text">${dhikr.transliteration}</p>
-            `;
-        }
-
-        // <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-2"></div> 
-        card.innerHTML = ` 
-            <div class="flex flex-row justify-between items-center mb-4 gap-2">
-                <p class="text-emerald-700 font-bold text-lg">${dhikr.count ? `Repeat: ${dhikr.count}x` : ''}</p>
-                <div class="flex items-center gap-2">
-                    ${(dhikr.virtue_ar && dhikr.virtue_en) ? `
-                    <button class="virtue-btn text-emerald-600 hover:text-emerald-800 text-sm font-semibold flex items-center gap-1" data-id="${dhikr.id}" data-category="${category}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        <span>Virtue</span>
-                    </button>` : ''}
-                    <button class="copy-btn text-emerald-600 hover:text-emerald-800 text-sm font-semibold flex items-center gap-1" data-id="${dhikr.id}" data-category="${category}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-                        <span>Copy</span>
-                    </button>
-                </div>
-            </div>
-            ${contentHtml}
-            <p class="mt-2 text-gray-700 text-sm english-text translation-text">${dhikr.translation}</p>
-            ${dhikr.count ? `
-            <div class="mt-6 flex justify-end">
-                <button 
-                    data-id="${dhikr.id}" 
-                    data-category="${category}" 
-                    class="counter-btn ${isCompleted ? 'bg-emerald-200 text-emerald-800 cursor-not-allowed' : 'bg-emerald-600 hover:bg-emerald-700 text-white'} font-bold py-2 px-6 rounded-full transition-colors duration-300 flex items-center gap-2"
-                    ${isCompleted ? 'disabled' : ''}
-                >
-                    ${isCompleted ? 
-                        `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> Completed` : 
-                        `Count <span class="count-display bg-white/20 text-white rounded-full px-2">${readCount}/${dhikr.count}</span>`
-                    }
-                </button>
-            </div>` : ''}
-        `;
-        adhkarContainer.appendChild(card);
-    });
-    updateProgressBar(category);
-    applySettings(false);
-}
-
-// --- Modal ---
-function showModal(id, content) {
-    const modal = document.getElementById(id);
-    const modalContent = modal.querySelector('div[id$="-content"]');
-    if(modal && modalContent) {
-         if (id === 'virtue-modal') {
-             modal.querySelector('#modal-text').innerHTML = `
-                 <p dir="rtl" class="arabic-text text-gray-800 text-right mb-4">${content.ar}</p>
-                 <p class="text-gray-600 text-sm english-text">${content.en.replace(/\[([^\]]+)\]/g, '<span class="font-semibold text-gray-500">[$1]</span>')}</p>
-             `;
-         }
-        modal.classList.remove('hidden');
-        modalContent.classList.remove('modal-leave');
-        modalContent.classList.add('modal-enter');
-    }
-}
-
-function hideModal(id) {
-    const modal = document.getElementById(id);
-    const modalContent = modal.querySelector('div[id$="-content"]');
-    if(modal && modalContent) {
-        modalContent.classList.remove('modal-enter');
-        modalContent.classList.add('modal-leave');
-        setTimeout(() => {
-            modal.classList.add('hidden');
-        }, 300);
-    }
-}
-
-// --- Settings ---
-const settings = {
-    fontSize: 1, showTransliteration: true, showTranslation: true,
+const categoryMeta = {
+    morning: {
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>`,
+        desc: 'Morning remembrances'
+    },
+    evening: {
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>`,
+        desc: 'Evening remembrances'
+    },
+    afterSalah: {
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>`,
+        desc: 'Post-prayer dhikr'
+    },
+    rabbana: {
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>`,
+        desc: "Qur'anic supplications"
+    },
+    forgiveness: {
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>`,
+        desc: 'Seeking forgiveness'
+    },
+    favorites: {
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-4-7 4V5z"/></svg>`,
+        desc: 'Your saved duas'
+    },
 };
+
+// ============================================================
+//  SETTINGS
+// ============================================================
+
+const settings = {
+    fontSize: 1,
+    showTransliteration: true,
+    showTranslation: true,
+    darkMode: false,
+};
+
 const fontSizes = [
-    { label: 'S', arabic: '0.9rem', english: '0.75rem' },
-    { label: 'M', arabic: '1.125rem', english: '0.875rem' },
-    { label: 'L', arabic: '1.375rem', english: '1rem' },
+    { label: 'S', arabic: '1rem',    english: '0.8rem'   },
+    { label: 'M', arabic: '1.25rem', english: '0.875rem' },
+    { label: 'L', arabic: '1.5rem',  english: '1rem'     },
 ];
 
-function saveSettings() {
-    localStorage.setItem('adhkarSettings', JSON.stringify(settings));
+// ============================================================
+//  PERSISTENCE
+// ============================================================
+
+function saveProgress()  { localStorage.setItem('adhkarProgress',  JSON.stringify(adhkarData)); }
+function saveSettings()  { localStorage.setItem('adhkarSettings',  JSON.stringify(settings));  }
+function saveHistory()   { localStorage.setItem('adhkarHistory',   JSON.stringify(history));   }
+function saveFavorites() { localStorage.setItem('adhkarFavorites', JSON.stringify(favorites)); }
+
+function loadProgress() {
+    const saved = localStorage.getItem('adhkarProgress');
+    if (saved) {
+        adhkarData = JSON.parse(saved);
+        Object.keys(staticAdhkarData).forEach(key => {
+            if (!adhkarData[key]) adhkarData[key] = JSON.parse(JSON.stringify(staticAdhkarData[key]));
+        });
+    } else {
+        adhkarData = JSON.parse(JSON.stringify(staticAdhkarData));
+    }
 }
 
 function loadSettings() {
     const saved = localStorage.getItem('adhkarSettings');
-    if(saved) Object.assign(settings, JSON.parse(saved));
+    if (saved) Object.assign(settings, JSON.parse(saved));
 }
-
-function applySettings(rerender = true) {
-    const size = fontSizes[settings.fontSize];
-    document.documentElement.style.setProperty('--font-size-arabic', size.arabic);
-    document.documentElement.style.setProperty('--font-size-english', size.english);
-    document.getElementById('font-size-label').textContent = size.label;
-    
-    const mainContent = document.getElementById('main-content');
-    mainContent.classList.toggle('hide-transliteration', !settings.showTransliteration);
-    mainContent.classList.toggle('hide-translation', !settings.showTranslation);
-    
-    document.getElementById('toggle-transliteration').checked = settings.showTransliteration;
-    document.getElementById('toggle-translation').checked = settings.showTranslation;
-    
-    if(rerender) {
-        const currentCategory = document.querySelector('.category-btn.active').dataset.category;
-        renderAdhkar(currentCategory);
-    }
-}
-
-function handleCategoryClick(e) {
-    const clickedBtn = e.currentTarget;
-    const category = clickedBtn.dataset.category;
-    
-    document.querySelectorAll('.category-btn').forEach(btn => {
-        btn.classList.remove('bg-emerald-600', 'text-white', 'shadow', 'active');
-        btn.classList.add('text-emerald-600');
-    });
-
-    clickedBtn.classList.add('bg-emerald-600', 'text-white', 'shadow', 'active');
-    clickedBtn.classList.remove('text-emerald-600');
-    
-    resetBtn.style.display = adhkarData[category].trackProgress ? 'block' : 'none';
-
-    renderAdhkar(category);
-    window.scrollTo(0, 0);
-}
-
-// --- Event Handlers ---
-
-function handleCount(e) {
-    const button = e.target.closest('.counter-btn');
-    if (!button || button.disabled) return;
-
-    const { id, category } = button.dataset;
-    const dhikr = adhkarData[category].items.find(d => d.id === id);
-
-    if (dhikr) {
-        dhikr.read = (dhikr.read || 0) + 1;
-        saveProgress();
-        updateProgressBar(category);
-        
-        const countDisplay = button.querySelector('.count-display');
-        if (countDisplay) countDisplay.textContent = `${dhikr.read}/${dhikr.count}`;
-
-        if (dhikr.read >= dhikr.count) {
-            button.disabled = true;
-            button.className = button.className.replace('bg-emerald-600 hover:bg-emerald-700 text-white', 'bg-emerald-200 text-emerald-800 cursor-not-allowed');
-            button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> Completed`;
-        }
-    }
-}
-
-function handleVirtueClick(e) {
-    const button = e.target.closest('.virtue-btn');
-    if (!button) return;
-
-    const { id, category } = button.dataset;
-    const dhikr = adhkarData[category].items.find(d => d.id === id);
-    
-    if (dhikr && dhikr.virtue_ar && dhikr.virtue_en) {
-        showModal('virtue-modal', { ar: dhikr.virtue_ar, en: dhikr.virtue_en });
-    }
-}
-
-function handleCopyClick(e) {
-    const button = e.target.closest('.copy-btn');
-    if (!button) return;
-
-    const { id, category } = button.dataset;
-    const dhikr = adhkarData[category].items.find(d => d.id === id);
-
-    if (dhikr) {
-        let textToCopy = '';
-        if (dhikr.isComplex) {
-             textToCopy = dhikr.parts.map(p => `${p.title_ar}\n${p.arabic}\n\n${p.title_en}\n${p.transliteration}`).join('\n\n---\n\n');
-        } else {
-            textToCopy = `${dhikr.arabic}\n\n${dhikr.transliteration}\n\n${dhikr.translation}`;
-        }
-
-        navigator.clipboard.writeText(textToCopy).then(() => {
-            const buttonSpan = button.querySelector('span');
-            if (buttonSpan) {
-                 const originalText = buttonSpan.textContent;
-                 buttonSpan.textContent = 'Copied!';
-                 setTimeout(() => { buttonSpan.textContent = originalText; }, 2000);
-            }
-        }).catch(err => console.error('Failed to copy text: ', err));
-    }
-}
-
-function updateDateTime() {
-    const now = new Date();
-    const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
-    document.getElementById('date').textContent = now.toLocaleDateString('en-US', dateOptions);
-    document.getElementById('time').textContent = now.toLocaleTimeString('en-US', timeOptions);
-}
-
-// --- Calendar & Streak Logic ---
-let currentCalendarDate = new Date();
-let history = {};
 
 function loadHistory() {
     const saved = localStorage.getItem('adhkarHistory');
     history = saved ? JSON.parse(saved) : {};
 }
 
-function saveHistory() {
-    localStorage.setItem('adhkarHistory', JSON.stringify(history));
+function loadFavorites() {
+    const saved = localStorage.getItem('adhkarFavorites');
+    favorites = saved ? JSON.parse(saved) : {};
 }
 
-function markCompletion(category) {
-    const today = new Date();
-    const dateString = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`;
-    
-    if (!history[dateString]) history[dateString] = [];
-    if (!history[dateString].includes(category)) {
-        history[dateString].push(category);
-        saveHistory();
+// ============================================================
+//  THEME
+// ============================================================
+
+function applyTheme() {
+    document.body.classList.toggle('dark', settings.darkMode);
+    const toggle = document.getElementById('toggle-dark-mode');
+    if (toggle) toggle.checked = settings.darkMode;
+}
+
+// ============================================================
+//  HOME VIEW
+// ============================================================
+
+function renderHomeView() {
+    currentView = 'home';
+
+    document.getElementById('home-view').classList.remove('hidden');
+    document.getElementById('reader-view').classList.add('hidden');
+    document.getElementById('adhkar-container').classList.add('hidden');
+    document.getElementById('empty-state').classList.add('hidden');
+
+    // Time-based greeting
+    const hour = new Date().getHours();
+    const greeting = hour < 12 ? 'Good Morning'
+                   : hour < 18 ? 'Good Afternoon'
+                   : 'Good Evening';
+    const greetEl = document.getElementById('home-greeting');
+    if (greetEl) greetEl.textContent = greeting;
+
+    const grid = document.getElementById('home-grid');
+    grid.innerHTML = '';
+
+    // Build cards for all real categories + favorites
+    const allKeys = [...Object.keys(staticAdhkarData), 'favorites'];
+
+    allKeys.forEach(key => {
+        const meta  = categoryMeta[key];
+        const items = key === 'favorites'
+            ? getFavoriteItems().items
+            : staticAdhkarData[key].items;
+        const title = key === 'favorites' ? 'Favorites' : staticAdhkarData[key].title;
+        const count = items.length;
+
+        // Progress bar for morning / evening
+        let progressHtml = '';
+        if (key === 'morning' || key === 'evening') {
+            const total = adhkarData[key].items.reduce((s, d) => s + d.count, 0);
+            const done  = adhkarData[key].items.reduce((s, d) => s + (d.read || 0), 0);
+            const pct   = total > 0 ? Math.min(Math.round((done / total) * 100), 100) : 0;
+            progressHtml = `
+                <div class="home-card-progress-wrap">
+                    <div class="home-card-progress-track">
+                        <div class="home-card-progress-fill" style="width:${pct}%"></div>
+                    </div>
+                    <span class="home-card-progress-pct">${pct}%</span>
+                </div>`;
+        }
+
+        const card = document.createElement('button');
+        card.className = `home-card home-card-${key}`;
+        card.innerHTML = `
+            <span class="home-card-icon">${meta.icon}</span>
+            <span class="home-card-title">${title}</span>
+            <span class="home-card-desc">${meta.desc}</span>
+            <span class="home-card-count">${count} ${count === 1 ? 'item' : 'items'}</span>
+            ${progressHtml}
+        `;
+        card.addEventListener('click', () => openReader(key));
+        grid.appendChild(card);
+    });
+}
+
+// ============================================================
+//  READER VIEW
+// ============================================================
+
+function getReaderItems(categoryKey) {
+    if (categoryKey === 'favorites') return getFavoriteItems().items;
+    return adhkarData[categoryKey] ? adhkarData[categoryKey].items : [];
+}
+
+function openReader(categoryKey) {
+    const items = getReaderItems(categoryKey);
+
+    if (items.length === 0) {
+        showToast(categoryKey === 'favorites'
+            ? 'No favorites saved yet. Tap ❤️ on any dhikr to save it.'
+            : 'No items in this category.');
+        return;
     }
+
+    readerCategory = categoryKey;
+
+    // Start at first incomplete item for tracked categories
+    readerIndex = 0;
+    if (categoryKey !== 'favorites' && adhkarData[categoryKey] && adhkarData[categoryKey].trackProgress) {
+        const firstIncomplete = items.findIndex(d => (d.read || 0) < d.count);
+        if (firstIncomplete !== -1) readerIndex = firstIncomplete;
+    }
+
+    currentView = 'reader';
+    document.getElementById('home-view').classList.add('hidden');
+    document.getElementById('reader-view').classList.remove('hidden');
+    document.getElementById('adhkar-container').classList.add('hidden');
+    document.getElementById('empty-state').classList.add('hidden');
+
+    // Category title
+    const titleEl = document.getElementById('reader-cat-title');
+    if (titleEl) titleEl.textContent = categoryKey === 'favorites' ? 'Favorites' : staticAdhkarData[categoryKey].title;
+
+    // Show/hide progress bar and reset button (only for tracked categories)
+    const isTracked = categoryKey !== 'favorites' && adhkarData[categoryKey] && adhkarData[categoryKey].trackProgress;
+    const pbarWrap = document.getElementById('progress-bar-container');
+    const resetBtn = document.getElementById('reset-btn');
+    if (pbarWrap) pbarWrap.classList.toggle('hidden', !isTracked);
+    if (resetBtn) resetBtn.classList.toggle('hidden', !isTracked);
+
+    renderReaderCard();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderReaderCard() {
+    const items = getReaderItems(readerCategory);
+    if (!items.length) { goHome(); return; }
+
+    const dhikr     = items[readerIndex];
+    const isFav     = !!favorites[dhikr.id];
+    const readCount = dhikr.read || 0;
+    const isComplete = dhikr.count && readCount >= dhikr.count;
+
+    // Position label
+    const posEl = document.getElementById('reader-position');
+    if (posEl) posEl.textContent = `${readerIndex + 1} / ${items.length}`;
+
+    // Progress bar update
+    if (readerCategory !== 'favorites' && adhkarData[readerCategory]) {
+        updateProgressBar(readerCategory);
+    }
+
+    // Prev / Next button states
+    const prevBtn = document.getElementById('reader-prev-btn');
+    const nextBtn = document.getElementById('reader-next-btn');
+    if (prevBtn) prevBtn.disabled = readerIndex === 0;
+    if (nextBtn) {
+        const isLast = readerIndex >= items.length - 1;
+        nextBtn.innerHTML = isLast
+            ? `Finish <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>`
+            : `Next <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>`;
+    }
+
+    // Render card
+    const cardInner = document.getElementById('reader-card-inner');
+    cardInner.innerHTML = `
+        <div class="adhkar-card fade-in${isComplete ? ' is-completed' : ''}">
+            <div class="flex items-center justify-between mb-4 gap-2 flex-wrap">
+                <span class="text-xs font-semibold uppercase tracking-wide text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">
+                    ${dhikr.count ? `${dhikr.count}×` : 'Dua'}
+                </span>
+                <div class="flex items-center gap-1">
+                    <button class="fav-btn${isFav ? ' is-fav' : ''}" data-id="${dhikr.id}" aria-label="${isFav ? 'Remove from favorites' : 'Add to favorites'}">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="${isFav ? 'currentColor' : 'none'}" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                        <span>${isFav ? 'Saved' : 'Save'}</span>
+                    </button>
+                    ${dhikr.virtue_ar ? `
+                    <button class="virtue-btn fav-btn" data-id="${dhikr.id}" data-category="${readerCategory}" aria-label="View virtue">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <span>Virtue</span>
+                    </button>` : ''}
+                    <button class="copy-btn fav-btn" data-id="${dhikr.id}" data-category="${readerCategory}" aria-label="Copy">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                        <span>Copy</span>
+                    </button>
+                </div>
+            </div>
+            ${buildContentHtml(dhikr)}
+            <p class="mt-3 text-gray-600 text-sm english-text translation-text border-t border-gray-50 pt-3">${dhikr.translation}</p>
+            ${buildCounterHtml(dhikr, readerCategory)}
+        </div>
+    `;
+
+    // Scroll content area to top on each card change
+    const contentArea = document.getElementById('reader-content-area');
+    if (contentArea) contentArea.scrollTop = 0;
+
+    applySettings(false);
+}
+
+function navigateReader(delta) {
+    const items    = getReaderItems(readerCategory);
+    const newIndex = readerIndex + delta;
+
+    if (newIndex < 0) return; // already at first
+
+    if (newIndex >= items.length) {
+        // Reached end of category
+        goHome();
+        showToast(`${document.getElementById('reader-cat-title').textContent} complete!`);
+        return;
+    }
+
+    readerIndex = newIndex;
+    renderReaderCard();
+}
+
+function goHome() {
+    currentView = 'reader'; // temporary so renderHomeView sets it properly
+    renderHomeView();
+}
+
+// ============================================================
+//  SWIPE SUPPORT
+// ============================================================
+
+function setupSwipe() {
+    const readerView = document.getElementById('reader-view');
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    readerView.addEventListener('touchstart', e => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    readerView.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        const dy = e.changedTouches[0].clientY - touchStartY;
+        // Only fire if horizontal movement dominates and is at least 50px
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+            navigateReader(dx < 0 ? 1 : -1);
+        }
+    }, { passive: true });
+}
+
+// ============================================================
+//  PROGRESS BAR  (IDs live inside #reader-view)
+// ============================================================
+
+function updateProgressBar(category) {
+    const container = document.getElementById('progress-bar-container');
+    const label     = document.getElementById('progress-label');
+    const categoryData = adhkarData[category];
+
+    if (!container) return;
+
+    if (!categoryData || !categoryData.trackProgress) {
+        container.classList.add('hidden');
+        return;
+    }
+
+    container.classList.remove('hidden');
+
+    const total   = categoryData.items.reduce((s, d) => s + d.count, 0);
+    const current = categoryData.items.reduce((s, d) => s + (d.read || 0), 0);
+    const pct     = total > 0 ? Math.min((current / total) * 100, 100) : 0;
+
+    const bar = document.getElementById('progress-bar');
+    if (bar)   bar.style.width = `${pct}%`;
+    if (label) label.textContent = pct >= 100 ? '✓ All completed!' : `${current} / ${total} recitations`;
+
+    if (pct >= 100) markCompletion(category);
+}
+
+// ============================================================
+//  RESET
+// ============================================================
+
+const resetBtn = document.getElementById('reset-btn');
+
+function resetProgress() {
+    localStorage.removeItem('adhkarProgress');
+    localStorage.removeItem('adhkarHistory');
+    adhkarData = JSON.parse(JSON.stringify(staticAdhkarData));
+    history    = {};
+
+    if (currentView === 'reader') {
+        renderReaderCard();
+        updateProgressBar(readerCategory);
+    } else {
+        renderHomeView();
+    }
+
+    if (resetBtn) {
+        resetBtn.disabled = true;
+        const orig = resetBtn.textContent;
+        resetBtn.textContent = 'Done!';
+        setTimeout(() => { resetBtn.textContent = orig; resetBtn.disabled = false; }, 2000);
+    }
+}
+
+// ============================================================
+//  CARD HTML HELPERS  (shared by reader + search results)
+// ============================================================
+
+function buildContentHtml(dhikr) {
+    if (dhikr.isComplex) {
+        return dhikr.parts.map(part => `
+            <div class="mb-4 pb-4 border-b border-gray-100 last:border-0 last:mb-0 last:pb-0">
+                <p class="text-xs font-semibold text-emerald-600 mb-1">${part.title_en}</p>
+                <p dir="rtl" class="arabic-text text-gray-800 text-right">${part.arabic}</p>
+                <p class="mt-2 text-gray-400 italic text-sm english-text transliteration-text">${part.transliteration}</p>
+            </div>
+        `).join('');
+    }
+    return `
+        <p dir="rtl" class="arabic-text text-gray-800 text-right">${dhikr.arabic}</p>
+        <p class="mt-3 text-gray-400 italic text-sm english-text transliteration-text">${dhikr.transliteration}</p>
+    `;
+}
+
+function buildCounterHtml(dhikr, category) {
+    if (!dhikr.count) return '';
+    const readCount  = dhikr.read || 0;
+    const isComplete = readCount >= dhikr.count;
+    return `
+        <div class="mt-5 flex justify-end">
+            <button
+                data-id="${dhikr.id}" data-category="${category}"
+                aria-label="Count recitation${isComplete ? ' — completed' : ''}"
+                class="counter-btn ${isComplete
+                    ? 'bg-emerald-100 text-emerald-700 cursor-not-allowed'
+                    : 'bg-emerald-600 hover:bg-emerald-700 text-white'
+                } font-semibold py-2 px-5 rounded-full transition-colors duration-200 flex items-center gap-2 text-sm"
+                ${isComplete ? 'disabled' : ''}
+            >
+                ${isComplete
+                    ? `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> Completed`
+                    : `Count <span class="count-display bg-white/20 rounded-full px-2 text-xs">${readCount}/${dhikr.count}</span>`
+                }
+            </button>
+        </div>
+    `;
+}
+
+// ============================================================
+//  FAVORITES
+// ============================================================
+
+function getFavoriteItems() {
+    const all  = Object.values(staticAdhkarData).flatMap(cat => cat.items);
+    return { title: 'Favorites', trackProgress: false, items: all.filter(d => favorites[d.id]) };
+}
+
+// ============================================================
+//  SEARCH RESULTS  (flat list view across all categories)
+// ============================================================
+
+function renderSearchResults(results) {
+    const container  = document.getElementById('adhkar-container');
+    const emptyState = document.getElementById('empty-state');
+    container.innerHTML = '';
+
+    if (!results.length) {
+        container.classList.add('hidden');
+        emptyState.classList.remove('hidden');
+        return;
+    }
+    container.classList.remove('hidden');
+    emptyState.classList.add('hidden');
+
+    results.forEach(({ dhikr, categoryKey }) => {
+        const isFav      = !!favorites[dhikr.id];
+        const readCount  = dhikr.read || 0;
+        const isComplete = dhikr.count && readCount >= dhikr.count;
+        const catTitle   = staticAdhkarData[categoryKey] ? staticAdhkarData[categoryKey].title : '';
+
+        const card = document.createElement('div');
+        card.className = `adhkar-card fade-in${isComplete ? ' is-completed' : ''}`;
+        card.innerHTML = `
+            <div class="flex items-center justify-between mb-3 gap-2 flex-wrap">
+                <div class="flex items-center gap-2">
+                    <span class="text-xs font-semibold bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded-full">${catTitle}</span>
+                    ${dhikr.count ? `<span class="text-xs text-gray-400 font-semibold">${dhikr.count}×</span>` : ''}
+                </div>
+                <div class="flex items-center gap-1">
+                    <button class="fav-btn${isFav ? ' is-fav' : ''}" data-id="${dhikr.id}" aria-label="${isFav ? 'Remove from favorites' : 'Add to favorites'}">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="${isFav ? 'currentColor' : 'none'}" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                        <span>${isFav ? 'Saved' : 'Save'}</span>
+                    </button>
+                    ${dhikr.virtue_ar ? `<button class="virtue-btn fav-btn" data-id="${dhikr.id}" data-category="${categoryKey}" aria-label="Virtue">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <span>Virtue</span>
+                    </button>` : ''}
+                    <button class="copy-btn fav-btn" data-id="${dhikr.id}" data-category="${categoryKey}" aria-label="Copy">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                        <span>Copy</span>
+                    </button>
+                </div>
+            </div>
+            ${buildContentHtml(dhikr)}
+            <p class="mt-3 text-gray-600 text-sm english-text translation-text border-t border-gray-50 pt-3">${dhikr.translation}</p>
+            ${buildCounterHtml(dhikr, categoryKey)}
+        `;
+        container.appendChild(card);
+    });
+
+    applySettings(false);
+}
+
+// ============================================================
+//  SETTINGS APPLICATION
+// ============================================================
+
+function applySettings(rerender = true) {
+    const size = fontSizes[settings.fontSize];
+    document.documentElement.style.setProperty('--font-size-arabic',  size.arabic);
+    document.documentElement.style.setProperty('--font-size-english', size.english);
+
+    const fontLabel = document.getElementById('font-size-label');
+    if (fontLabel) fontLabel.textContent = size.label;
+
+    const mainContent = document.getElementById('main-content');
+    mainContent.classList.toggle('hide-transliteration', !settings.showTransliteration);
+    mainContent.classList.toggle('hide-translation',     !settings.showTranslation);
+
+    const translit = document.getElementById('toggle-transliteration');
+    const transl   = document.getElementById('toggle-translation');
+    if (translit) translit.checked = settings.showTransliteration;
+    if (transl)   transl.checked   = settings.showTranslation;
+
+    applyTheme();
+
+    if (rerender && currentView === 'reader') renderReaderCard();
+}
+
+// ============================================================
+//  MODAL HELPERS
+// ============================================================
+
+function showModal(id) {
+    const modal = document.getElementById(id);
+    const box   = modal && modal.querySelector('.modal-box');
+    if (!modal || !box) return;
+    modal.classList.remove('hidden');
+    box.classList.remove('modal-leave');
+    box.classList.add('modal-enter');
+    const first = box.querySelector('button, [tabindex]');
+    if (first) first.focus();
+}
+
+function hideModal(id) {
+    const modal = document.getElementById(id);
+    const box   = modal && modal.querySelector('.modal-box');
+    if (!modal || !box) return;
+    box.classList.remove('modal-enter');
+    box.classList.add('modal-leave');
+    setTimeout(() => modal.classList.add('hidden'), 250);
+}
+
+// Close modal on Escape
+document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    for (const id of ['virtue-modal', 'settings-modal', 'progress-modal']) {
+        const m = document.getElementById(id);
+        if (m && !m.classList.contains('hidden')) { hideModal(id); break; }
+    }
+});
+
+// ============================================================
+//  TOAST
+// ============================================================
+
+let toastTimer = null;
+
+function showToast(message = 'Done!') {
+    const toast = document.getElementById('toast');
+    const msg   = document.getElementById('toast-message');
+    if (!toast || !msg) return;
+    msg.textContent = message;
+    toast.classList.remove('hidden');
+    toast.classList.add('toast-show');
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+        toast.classList.add('hidden');
+        toast.classList.remove('toast-show');
+    }, 2400);
+}
+
+// ============================================================
+//  EVENT HANDLERS  (delegated on document)
+// ============================================================
+
+function handleCount(e) {
+    const btn = e.target.closest('.counter-btn');
+    if (!btn || btn.disabled) return;
+
+    const { id } = btn.dataset;
+
+    // Find dhikr across all categories (works for any view)
+    let dhikr = null;
+    let realKey = null;
+    for (const key of Object.keys(adhkarData)) {
+        const found = adhkarData[key].items && adhkarData[key].items.find(d => d.id === id);
+        if (found) { dhikr = found; realKey = key; break; }
+    }
+    if (!dhikr) return;
+
+    dhikr.read = (dhikr.read || 0) + 1;
+    saveProgress();
+
+    if (adhkarData[realKey] && adhkarData[realKey].trackProgress) {
+        updateProgressBar(realKey);
+    }
+
+    const countDisplay = btn.querySelector('.count-display');
+    if (countDisplay) countDisplay.textContent = `${dhikr.read}/${dhikr.count}`;
+
+    if (dhikr.read >= dhikr.count) {
+        btn.disabled = true;
+        btn.className = btn.className
+            .replace('bg-emerald-600 hover:bg-emerald-700 text-white', 'bg-emerald-100 text-emerald-700 cursor-not-allowed');
+        btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg> Completed`;
+
+        const card = btn.closest('.adhkar-card');
+        if (card) card.classList.add('is-completed');
+
+        // Auto-advance in reader mode after a brief pause
+        if (currentView === 'reader') {
+            setTimeout(() => navigateReader(1), 700);
+        }
+    }
+}
+
+function handleVirtueClick(e) {
+    const btn = e.target.closest('.virtue-btn');
+    if (!btn) return;
+
+    const { id } = btn.dataset;
+    const allItems = Object.values(staticAdhkarData).flatMap(c => c.items);
+    const dhikr    = allItems.find(d => d.id === id);
+
+    if (dhikr && dhikr.virtue_ar && dhikr.virtue_en) {
+        document.getElementById('modal-text').innerHTML = `
+            <p dir="rtl" class="arabic-text text-gray-800 text-right mb-4 leading-loose">${dhikr.virtue_ar}</p>
+            <p class="text-gray-600 text-sm english-text">${dhikr.virtue_en.replace(/\[([^\]]+)\]/g, '<span class="font-semibold text-gray-400">[$1]</span>')}</p>
+        `;
+        showModal('virtue-modal');
+    }
+}
+
+function handleCopyClick(e) {
+    const btn = e.target.closest('.copy-btn');
+    if (!btn) return;
+
+    const { id } = btn.dataset;
+    const allItems = Object.values(staticAdhkarData).flatMap(c => c.items);
+    const dhikr    = allItems.find(d => d.id === id);
+    if (!dhikr) return;
+
+    const text = dhikr.isComplex
+        ? dhikr.parts.map(p => `${p.title_ar}\n${p.arabic}\n\n${p.title_en}\n${p.transliteration}`).join('\n\n---\n\n')
+        : `${dhikr.arabic}\n\n${dhikr.transliteration}\n\n${dhikr.translation}`;
+
+    navigator.clipboard.writeText(text)
+        .then(()  => showToast('Copied to clipboard!'))
+        .catch(()  => showToast('Could not copy'));
+}
+
+function handleFavClick(e) {
+    const btn = e.target.closest('.fav-btn');
+    if (!btn || btn.classList.contains('virtue-btn') || btn.classList.contains('copy-btn')) return;
+
+    const { id } = btn.dataset;
+    if (!id) return;
+
+    if (favorites[id]) delete favorites[id]; else favorites[id] = true;
+    saveFavorites();
+
+    const isFav = !!favorites[id];
+    btn.classList.toggle('is-fav', isFav);
+    const svg  = btn.querySelector('svg');
+    const span = btn.querySelector('span');
+    if (svg)  svg.setAttribute('fill', isFav ? 'currentColor' : 'none');
+    if (span) span.textContent = isFav ? 'Saved' : 'Save';
+    btn.setAttribute('aria-label', isFav ? 'Remove from favorites' : 'Add to favorites');
+
+    showToast(isFav ? 'Added to favorites!' : 'Removed from favorites');
+
+    // In reader mode: re-render the card so the heart state is consistent on re-visit
+    if (currentView === 'reader') renderReaderCard();
+}
+
+// ============================================================
+//  DATE / TIME
+// ============================================================
+
+function updateDateTime() {
+    const now = new Date();
+    const dateEl = document.getElementById('date');
+    const timeEl = document.getElementById('time');
+    if (dateEl) dateEl.textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    if (timeEl) timeEl.textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+}
+
+// ============================================================
+//  STREAK & CALENDAR
+// ============================================================
+
+let currentCalendarDate = new Date();
+
+function markCompletion(category) {
+    const d   = new Date();
+    const key = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+    if (!history[key]) history[key] = [];
+    if (!history[key].includes(category)) { history[key].push(category); saveHistory(); }
 }
 
 function calculateStreak() {
     let streak = 0;
-    let currentDate = new Date();
+    const d = new Date();
     while (true) {
-        const dateString = `${currentDate.getFullYear()}-${currentDate.getMonth()}-${currentDate.getDate()}`;
-        if (history[dateString] && (history[dateString].includes('morning') || history[dateString].includes('evening'))) {
+        const key       = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+        const completed = history[key] || [];
+        if (completed.includes('morning') || completed.includes('evening')) {
             streak++;
-            currentDate.setDate(currentDate.getDate() - 1);
-        } else {
-            break;
-        }
+            d.setDate(d.getDate() - 1);
+        } else break;
     }
-    document.getElementById('streak-count').textContent = `${streak} Day${streak !== 1 ? 's' : ''}`;
+    const el = document.getElementById('streak-count');
+    if (el) el.textContent = `${streak} Day${streak !== 1 ? 's' : ''}`;
 }
 
 function renderCalendar(date) {
     loadHistory();
     const month = date.getMonth();
-    const year = date.getFullYear();
-    
-    document.getElementById('month-year-label').textContent = date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-    
-    const firstDayOfMonth = new Date(year, month, 1).getDay();
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-    
-    const calendarBody = document.getElementById('calendar-body');
-    calendarBody.innerHTML = '';
-    
-    for (let i = 0; i < firstDayOfMonth; i++) calendarBody.innerHTML += `<div></div>`;
-    
-    const today = new Date();
-    for (let day = 1; day <= daysInMonth; day++) {
-        const dateString = `${year}-${month}-${day}`;
-        const completed = history[dateString] || [];
-        const isToday = day === today.getDate() && month === today.getMonth() && year === today.getFullYear();
+    const year  = date.getFullYear();
+    const label = document.getElementById('month-year-label');
+    if (label) label.textContent = date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
-        calendarBody.innerHTML += `
+    const firstDay    = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const today       = new Date();
+    const body        = document.getElementById('calendar-body');
+    if (!body) return;
+    body.innerHTML = '';
+
+    for (let i = 0; i < firstDay; i++) body.innerHTML += `<div></div>`;
+
+    for (let day = 1; day <= daysInMonth; day++) {
+        const key       = `${year}-${month}-${day}`;
+        const completed = history[key] || [];
+        const isToday   = day === today.getDate() && month === today.getMonth() && year === today.getFullYear();
+        body.innerHTML += `
             <div class="h-9 flex items-center justify-center relative">
-                <span class="${isToday ? 'today font-bold text-emerald-800' : ''} h-7 w-7 flex items-center justify-center">
-                    ${day}
-                </span>
-                <div class="absolute bottom-1 flex gap-0.5">
+                <span class="${isToday ? 'today-marker' : ''} h-7 w-7 flex items-center justify-center text-xs rounded-full">${day}</span>
+                <div class="absolute bottom-0.5 flex gap-0.5">
                     ${completed.includes('morning') ? '<div class="w-1.5 h-1.5 bg-green-500 rounded-full"></div>' : ''}
                     ${completed.includes('evening') ? '<div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>' : ''}
                 </div>
-            </div>
-        `;
+            </div>`;
     }
 }
 
-function renderCategoryButtons() {
-    const container = document.getElementById('category-buttons');
-    container.innerHTML = '';
-    Object.keys(staticAdhkarData).forEach((key, index) => {
-        const category = staticAdhkarData[key];
-        const isActive = index === 0;
-        container.innerHTML += `
-            <button data-category="${key}" class="category-btn flex-shrink-0 text-sm py-2 px-4 rounded-full font-semibold transition-colors duration-200 ${isActive ? 'bg-emerald-600 text-white shadow active' : 'text-emerald-600'}">
-                ${category.title}
-            </button>
-        `;
-    });
-    document.querySelectorAll('.category-btn').forEach(btn => btn.addEventListener('click', handleCategoryClick));
+// ============================================================
+//  BACK TO TOP
+// ============================================================
+
+function setupBackToTop() {
+    const btn = document.getElementById('back-to-top');
+    if (!btn) return;
+    window.addEventListener('scroll', () => {
+        btn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
 
-// --- Initial Load & Event Listeners ---
+// ============================================================
+//  INIT
+// ============================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    const settingsModal = document.getElementById('settings-modal');
-    const settingsBtn = document.getElementById('settings-btn');
-    const closeSettingsBtn = document.getElementById('close-settings-btn');
-    const progressModal = document.getElementById('progress-modal');
-    const progressBtn = document.getElementById('progress-btn');
-    const closeProgressBtn = document.getElementById('close-progress-btn');
-
     loadProgress();
     loadSettings();
-    renderCategoryButtons();
+    loadFavorites();
+
     applySettings(false);
-    renderAdhkar('morning');
+    applyTheme();
+    renderHomeView();
     updateDateTime();
     setInterval(updateDateTime, 1000);
+    setupBackToTop();
+    setupSwipe();
 
-    resetBtn.addEventListener('click', resetProgress);
-    
-    adhkarContainer.addEventListener('click', e => {
+    // Delegate all card interactions to document
+    document.addEventListener('click', e => {
         handleCount(e);
         handleVirtueClick(e);
         handleCopyClick(e);
+        handleFavClick(e);
     });
-    
-    closeModalBtn.addEventListener('click', () => hideModal('virtue-modal'));
-    virtueModal.addEventListener('click', e => { if (e.target === virtueModal) hideModal('virtue-modal'); });
 
+    // Reset button (lives inside reader view)
+    if (resetBtn) resetBtn.addEventListener('click', resetProgress);
+
+    // Reader navigation
+    document.getElementById('reader-back-btn').addEventListener('click', goHome);
+    document.getElementById('reader-prev-btn').addEventListener('click', () => navigateReader(-1));
+    document.getElementById('reader-next-btn').addEventListener('click', () => navigateReader(1));
+
+    // Virtue modal
+    document.getElementById('close-modal-btn').addEventListener('click', () => hideModal('virtue-modal'));
+    document.getElementById('virtue-modal').addEventListener('click', e => {
+        if (e.target === document.getElementById('virtue-modal')) hideModal('virtue-modal');
+    });
+
+    // Settings modal
+    const settingsBtn   = document.getElementById('settings-btn');
+    const settingsModal = document.getElementById('settings-modal');
     settingsBtn.addEventListener('click', () => showModal('settings-modal'));
-    closeSettingsBtn.addEventListener('click', () => hideModal('settings-modal'));
+    document.getElementById('close-settings-btn').addEventListener('click', () => hideModal('settings-modal'));
     settingsModal.addEventListener('click', e => { if (e.target === settingsModal) hideModal('settings-modal'); });
 
     document.getElementById('font-increase').addEventListener('click', () => {
@@ -792,14 +889,21 @@ document.addEventListener('DOMContentLoaded', () => {
         settings.showTranslation = e.target.checked;
         saveSettings(); applySettings();
     });
+    document.getElementById('toggle-dark-mode').addEventListener('change', e => {
+        settings.darkMode = e.target.checked;
+        saveSettings(); applyTheme();
+    });
 
+    // Progress modal
+    const progressBtn   = document.getElementById('progress-btn');
+    const progressModal = document.getElementById('progress-modal');
     progressBtn.addEventListener('click', () => {
         currentCalendarDate = new Date();
         renderCalendar(currentCalendarDate);
         calculateStreak();
         showModal('progress-modal');
     });
-    closeProgressBtn.addEventListener('click', () => hideModal('progress-modal'));
+    document.getElementById('close-progress-btn').addEventListener('click', () => hideModal('progress-modal'));
     progressModal.addEventListener('click', e => { if (e.target === progressModal) hideModal('progress-modal'); });
 
     document.getElementById('prev-month-btn').addEventListener('click', () => {
@@ -810,33 +914,65 @@ document.addEventListener('DOMContentLoaded', () => {
         currentCalendarDate.setMonth(currentCalendarDate.getMonth() + 1);
         renderCalendar(currentCalendarDate);
     });
-    
 
-    const applyTheme = (theme) => {
-    const isDarkMode = theme === 'dark';
-    document.body.classList.toggle('dark', isDarkMode);
+    // Search
+    const searchToggle    = document.getElementById('search-toggle-btn');
+    const searchContainer = document.getElementById('search-bar-container');
+    const searchInput     = document.getElementById('search-input');
 
-    // This line syncs the toggle switch in the settings modal
-    document.getElementById('toggle-dark-mode').checked = isDarkMode;
-};
-
-
-    // Apply saved theme on initial load
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        applyTheme(savedTheme);
-    }
-
-
-     document.getElementById('toggle-dark-mode').addEventListener('change', (e) => {
-        const newTheme = e.target.checked ? 'dark' : 'light';
-        localStorage.setItem('theme', newTheme);
-        applyTheme(newTheme);
+    searchToggle.addEventListener('click', () => {
+        const isNowHidden = searchContainer.classList.toggle('hidden');
+        if (!isNowHidden) {
+            searchInput.focus();
+        } else {
+            searchInput.value = '';
+            document.getElementById('adhkar-container').classList.add('hidden');
+            document.getElementById('empty-state').classList.add('hidden');
+            // Restore the correct view
+            if (currentView === 'reader') {
+                document.getElementById('reader-view').classList.remove('hidden');
+                document.getElementById('home-view').classList.add('hidden');
+            } else {
+                renderHomeView();
+            }
+        }
     });
 
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.trim().toLowerCase();
 
+        if (!query) {
+            document.getElementById('adhkar-container').classList.add('hidden');
+            document.getElementById('empty-state').classList.add('hidden');
+            if (currentView === 'reader') {
+                document.getElementById('reader-view').classList.remove('hidden');
+                document.getElementById('home-view').classList.add('hidden');
+            } else {
+                currentView = 'home';
+                document.getElementById('home-view').classList.remove('hidden');
+            }
+            return;
+        }
 
+        // Show search results, hide other views
+        currentView = 'search';
+        document.getElementById('home-view').classList.add('hidden');
+        document.getElementById('reader-view').classList.add('hidden');
+
+        // Search all categories
+        const results = [];
+        Object.keys(staticAdhkarData).forEach(key => {
+            staticAdhkarData[key].items.forEach(dhikr => {
+                const hay = [
+                    dhikr.arabic || '',
+                    dhikr.transliteration || '',
+                    dhikr.translation || '',
+                    ...(dhikr.parts ? dhikr.parts.flatMap(p => [p.arabic || '', p.transliteration || '']) : [])
+                ].join(' ').toLowerCase();
+                if (hay.includes(query)) results.push({ dhikr, categoryKey: key });
+            });
+        });
+
+        renderSearchResults(results);
+    });
 });
-
-
-

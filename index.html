@@ -13,136 +13,233 @@
 </head>
 <body class="bg-emerald-50 text-gray-800">
 
-    <header class="bg-white shadow-md">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-              <div class="flex items-center gap-4">
-                  <img src="img/logo.png" alt="Adhkar & Dua Logo" id="logo">
-              </div>
-              <div class="flex items-center gap-4">
-                  <div class="text-xs text-right text-gray-500">
-                      <p id="date"></p>
-                      <p id="time"></p>
-                  </div>
-                   <button id="progress-btn" class="text-gray-500 hover:text-emerald-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                   </button>
-                  <button id="settings-btn" class="text-gray-500 hover:text-emerald-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                  </button>
-              </div>
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <img src="img/logo.png" alt="Adhkar & Dua Logo" id="logo">
+                <div>
+                    <h1 class="text-lg font-bold text-emerald-800 leading-tight">Adhkar & Dua</h1>
+                    <p class="text-xs text-gray-400 hidden sm:block">Daily Islamic Remembrance</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <div class="text-xs text-right text-gray-400 hidden md:block">
+                    <p id="date"></p>
+                    <p id="time"></p>
+                </div>
+                <button id="progress-btn" aria-label="View progress and streak" class="icon-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                </button>
+                <button id="search-toggle-btn" aria-label="Toggle search" class="icon-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/></svg>
+                </button>
+                <button id="settings-btn" aria-label="Open settings" class="icon-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Search bar -->
+        <div id="search-bar-container" class="hidden border-t border-gray-100">
+            <div class="container mx-auto px-4 py-2">
+                <div class="relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/></svg>
+                    <input id="search-input" type="search" placeholder="Search in Arabic, transliteration, or translation…" aria-label="Search adhkar" class="w-full pl-9 pr-4 py-2 text-sm rounded-lg border border-gray-200 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent">
+                </div>
+            </div>
         </div>
     </header>
 
-    <nav id="category-nav" class="sticky top-0 bg-emerald-50 z-5 py-3 shadow-sm border-b border-t border-gray-200">
-        <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between">
-                <div id="category-buttons" class="flex-grow flex items-center gap-2 overflow-x-auto no-scrollbar">
-                    </div>
-                <button id="reset-btn" class="ml-4 text-sm bg-white text-red-700 hover:bg-red-50 border border-red-200 font-semibold py-2 px-4 rounded-full disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0">Reset</button>
-            </div>
-             <div id="progress-bar-container" class="mt-3 max-w-md mx-auto">
-                 <div class="relative w-full bg-emerald-200 rounded-full h-1.5">
-                     <div id="progress-bar" class="bg-emerald-600 h-1.5 rounded-full" style="width: 0%"></div>
-                 </div>
-             </div>
-        </div>
-    </nav>
+    <!-- Main content — three panels; only one visible at a time -->
+    <main id="main-content" class="min-h-screen">
 
-    <main id="main-content" class="container mx-auto p-4 md:p-8">
-        <div id="adhkar-container" class="space-y-4">
+        <!-- HOME VIEW: category cards -->
+        <div id="home-view" class="container mx-auto px-4 py-8 max-w-2xl">
+            <div class="mb-6">
+                <p id="home-greeting" class="text-2xl font-bold text-emerald-800"></p>
+                <p class="text-sm text-gray-400 mt-1">Select a category to begin your remembrance.</p>
             </div>
+            <div id="home-grid" class="grid grid-cols-2 gap-4">
+                <!-- Cards injected by JS -->
+            </div>
+        </div>
+
+        <!-- READER VIEW: one dhikr at a time -->
+        <div id="reader-view" class="hidden">
+
+            <!-- Reader topbar -->
+            <div class="reader-topbar">
+                <button id="reader-back-btn" aria-label="Back to categories" class="reader-back-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                    Back
+                </button>
+                <div class="text-center leading-tight">
+                    <p id="reader-cat-title" class="font-bold text-emerald-800 text-sm"></p>
+                    <p id="reader-position" class="text-xs text-gray-400"></p>
+                </div>
+                <button id="reset-btn" aria-label="Reset progress" class="hidden text-xs font-semibold text-red-500 hover:text-red-700 px-2 py-1 rounded-lg hover:bg-red-50 transition-colors">Reset</button>
+            </div>
+
+            <!-- Progress bar (morning / evening only) -->
+            <div id="progress-bar-container" class="hidden px-4 pt-2 pb-1 bg-white border-b border-gray-100">
+                <div class="relative w-full bg-emerald-100 rounded-full h-1.5">
+                    <div id="progress-bar" class="bg-emerald-500 h-1.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+                <p id="progress-label" class="text-center text-xs text-emerald-600 mt-1 font-medium"></p>
+            </div>
+
+            <!-- Scrollable dhikr content -->
+            <div id="reader-content-area" class="px-4 py-6 pb-28 max-w-2xl mx-auto">
+                <div id="reader-card-inner">
+                    <!-- Rendered by JS -->
+                </div>
+            </div>
+
+            <!-- Fixed bottom navigation -->
+            <div class="reader-bottom-nav">
+                <button id="reader-prev-btn" aria-label="Previous dhikr" class="reader-nav-btn reader-nav-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                    Prev
+                </button>
+                <div class="reader-swipe-hint">swipe to navigate</div>
+                <button id="reader-next-btn" aria-label="Next dhikr" class="reader-nav-btn reader-nav-primary">
+                    Next
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- SEARCH RESULTS VIEW -->
+        <div class="container mx-auto px-4 py-6 max-w-2xl">
+            <div id="adhkar-container" class="hidden space-y-4"></div>
+            <div id="empty-state" class="hidden text-center py-16">
+                <div class="mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/></svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-600 mb-2">No results found</h3>
+                <p class="text-sm text-gray-400">Try a different keyword or clear the search.</p>
+            </div>
+        </div>
+
     </main>
-    
-    <footer class="bg-white mt-12 py-6 border-t">
-        <div class="container mx-auto px-4 text-center text-gray-500">
-            <p>&copy; 2025 Adhkar & Dua. All Rights Reserved.</p>
-            <p class="text-sm mt-1">A tool to help you with your daily remembrances.</p>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-8 py-5 border-t border-gray-100">
+        <div class="container mx-auto px-4 text-center text-gray-400 text-sm">
+            <p class="font-medium text-gray-500">Adhkar & Dua</p>
+            <p class="text-xs mt-1">A daily companion for Islamic remembrance &amp; supplication.</p>
         </div>
     </footer>
 
-    <div id="virtue-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 hidden">
-        <div id="modal-content" class="bg-white rounded-lg shadow-xl w-full max-w-md p-6 relative">
-            <button id="close-modal-btn" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+    <!-- Back to top -->
+    <button id="back-to-top" aria-label="Back to top" class="fixed bottom-6 right-6 z-50 hidden bg-emerald-600 hover:bg-emerald-700 text-white rounded-full p-3 shadow-lg transition-all duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+    </button>
+
+    <!-- Toast -->
+    <div id="toast" role="status" aria-live="polite" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden">
+        <div id="toast-inner" class="bg-gray-800 text-white text-sm font-medium px-5 py-2.5 rounded-full shadow-lg flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-emerald-400 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+            <span id="toast-message">Copied!</span>
+        </div>
+    </div>
+
+    <!-- Virtue Modal -->
+    <div id="virtue-modal" role="dialog" aria-modal="true" aria-labelledby="virtue-modal-title" class="modal-backdrop hidden">
+        <div id="modal-content" class="modal-box w-full max-w-md">
+            <button id="close-modal-btn" aria-label="Close virtue" class="modal-close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
-            <div id="modal-body">
-                <h3 class="text-lg font-bold text-emerald-800 mb-4">Virtue</h3>
-                <div id="modal-text" class="space-y-4"></div>
+            <h3 id="virtue-modal-title" class="text-base font-bold text-emerald-800 mb-4 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+                Virtue &amp; Benefit
+            </h3>
+            <div id="modal-text" class="space-y-4"></div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title" class="modal-backdrop hidden">
+        <div id="settings-content" class="modal-box w-full max-w-sm">
+            <button id="close-settings-btn" aria-label="Close settings" class="modal-close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <h3 id="settings-modal-title" class="text-base font-bold text-emerald-800 mb-6 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                Settings
+            </h3>
+            <div class="space-y-5">
+                <div class="settings-row">
+                    <span class="settings-label">Font Size</span>
+                    <div class="flex items-center gap-2">
+                        <button id="font-decrease" aria-label="Decrease font size" class="font-mono h-8 w-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-lg font-bold transition-colors">−</button>
+                        <span id="font-size-label" class="w-8 text-center text-sm font-semibold">M</span>
+                        <button id="font-increase" aria-label="Increase font size" class="font-mono h-8 w-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-lg font-bold transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="settings-row">
+                    <span class="settings-label">Dark Mode</span>
+                    <label class="toggle-switch" aria-label="Toggle dark mode">
+                        <input type="checkbox" id="toggle-dark-mode" class="sr-only">
+                        <span class="toggle-track"></span>
+                    </label>
+                </div>
+                <div class="settings-row">
+                    <span class="settings-label">Show Transliteration</span>
+                    <label class="toggle-switch" aria-label="Toggle transliteration">
+                        <input type="checkbox" id="toggle-transliteration" class="sr-only">
+                        <span class="toggle-track"></span>
+                    </label>
+                </div>
+                <div class="settings-row">
+                    <span class="settings-label">Show Translation</span>
+                    <label class="toggle-switch" aria-label="Toggle translation">
+                        <input type="checkbox" id="toggle-translation" class="sr-only">
+                        <span class="toggle-track"></span>
+                    </label>
+                </div>
             </div>
         </div>
     </div>
-    
-    <div id="settings-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 hidden">
-        <div id="settings-content" class="bg-white rounded-lg shadow-xl w-full max-w-sm p-6 relative">
-             <button id="close-settings-btn" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600">
-                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-             </button>
-             <h3 class="text-lg font-bold text-emerald-800 mb-6">Settings</h3>
-             <div class="space-y-6">
 
-
-                 <div class="flex items-center justify-between">
-                     <span class="text-gray-700">Font Size</span>
-                     <div class="flex items-center gap-2">
-                         <button id="font-decrease" class="font-mono h-8 w-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-lg">-</button>
-                         <span id="font-size-label" class="w-8 text-center text-sm">M</span>
-                         <button id="font-increase" class="font-mono h-8 w-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-lg">+</button>
-                     </div>
-                 </div>
-                <div class="flex items-center justify-between">
-                    <span class="text-gray-700">Dark Mode</span>
-                    <div class="relative inline-block w-10 mr-2 align-middle select-none">
-                        <input type="checkbox" id="toggle-dark-mode" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
-                        <label for="toggle-dark-mode" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer transition-colors duration-200 ease-in-out"></label>
-                    </div>
+    <!-- Progress Modal -->
+    <div id="progress-modal" role="dialog" aria-modal="true" aria-labelledby="progress-modal-title" class="modal-backdrop hidden">
+        <div id="progress-content" class="modal-box w-full max-w-md">
+            <button id="close-progress-btn" aria-label="Close progress" class="modal-close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <h3 id="progress-modal-title" class="text-base font-bold text-emerald-800 mb-4 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                My Progress
+            </h3>
+            <div class="streak-card mb-5">
+                <div class="streak-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-8 w-8 text-orange-500"><path fill-rule="evenodd" d="M12.963 2.286a.75.75 0 00-1.071-.136 9.742 9.742 0 00-3.539 6.177A7.547 7.547 0 016.648 6.61a.75.75 0 00-1.152-.082A9 9 0 1015.68 4.534a7.46 7.46 0 01-2.717-2.248zM15.75 14.25a3.75 3.75 0 11-7.313-1.172c.628.465 1.35.81 2.133 1a5.99 5.99 0 011.925-3.545 3.75 3.75 0 013.255 3.717z" clip-rule="evenodd"/></svg>
                 </div>
-                 <div class="flex items-center justify-between">
-                     <span class="text-gray-700">Show Transliteration</span>
-                     <div class="relative inline-block w-10 mr-2 align-middle select-none">
-                         <input type="checkbox" id="toggle-transliteration" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
-                         <label for="toggle-transliteration" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer transition-colors duration-200 ease-in-out"></label>
-                     </div>
-                 </div>
-                 <div class="flex items-center justify-between">
-                     <span class="text-gray-700">Show Translation</span>
-                      <div class="relative inline-block w-10 mr-2 align-middle select-none">
-                         <input type="checkbox" id="toggle-translation" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
-                         <label for="toggle-translation" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer transition-colors duration-200 ease-in-out"></label>
-                     </div>
-                 </div>
-             </div>
-        </div>
-    </div>
-    
-    <div id="progress-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 hidden">
-        <div id="progress-content" class="bg-white rounded-lg shadow-xl w-full max-w-md p-6 relative">
-             <button id="close-progress-btn" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600">
-                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-             </button>
-             <h3 class="text-lg font-bold text-emerald-800 mb-4">My Progress</h3>
-             <div class="text-center mb-4 p-3 bg-emerald-100 rounded-lg">
-                 <p class="text-sm text-emerald-700">Current Streak</p>
-                 <p id="streak-count" class="text-3xl font-bold text-emerald-800">0 Days</p>
-             </div>
-             <div>
-                 <div class="flex items-center justify-between mb-4">
-                     <button id="prev-month-btn" class="p-1 rounded-full hover:bg-gray-200">
-                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
-                     </button>
-                     <h4 id="month-year-label" class="font-semibold text-gray-700"></h4>
-                     <button id="next-month-btn" class="p-1 rounded-full hover:bg-gray-200">
-                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
-                     </button>
-                 </div>
-                 <div class="grid calendar-grid text-center text-sm font-semibold text-gray-400 mb-2">
-                     <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-                 </div>
-                 <div id="calendar-body" class="grid calendar-grid"></div>
-             </div>
-             <div class="flex justify-center gap-4 mt-4 text-xs text-gray-500">
-                 <div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-green-500"></span> Morning</div>
-                 <div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-blue-500"></span> Evening</div>
-             </div>
+                <div>
+                    <p class="text-xs text-emerald-600 font-medium uppercase tracking-wide">Current Streak</p>
+                    <p id="streak-count" class="text-3xl font-bold text-emerald-900">0 Days</p>
+                </div>
+            </div>
+            <div>
+                <div class="flex items-center justify-between mb-3">
+                    <button id="prev-month-btn" aria-label="Previous month" class="p-1.5 rounded-full hover:bg-gray-100 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                    </button>
+                    <h4 id="month-year-label" class="font-semibold text-gray-700 text-sm"></h4>
+                    <button id="next-month-btn" aria-label="Next month" class="p-1.5 rounded-full hover:bg-gray-100 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
+                    </button>
+                </div>
+                <div class="grid calendar-grid text-center text-xs font-semibold text-gray-400 mb-1">
+                    <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+                </div>
+                <div id="calendar-body" class="grid calendar-grid"></div>
+            </div>
+            <div class="flex justify-center gap-5 mt-4 text-xs text-gray-400">
+                <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span> Morning</div>
+                <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block"></span> Evening</div>
+            </div>
         </div>
     </div>
 
