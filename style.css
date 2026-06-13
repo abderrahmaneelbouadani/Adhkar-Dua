@@ -68,6 +68,39 @@ body.dark #logo { filter: brightness(1.5); }
 .home-card-desc  { font-size: 0.7rem; opacity: 0.85; }
 .home-card-count { font-size: 0.7rem; opacity: 0.75; margin-top: auto; padding-top: 0.5rem; }
 
+.home-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 1.35rem;
+}
+.home-group-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.65rem;
+}
+.home-group-header h2 {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #047857;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.home-group-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+html[dir="rtl"] .home-card {
+    align-items: flex-end;
+    text-align: right;
+}
+html[dir="rtl"] .home-group-header {
+    justify-content: flex-end;
+}
+html[dir="rtl"] .home-card-progress-wrap {
+    flex-direction: row-reverse;
+}
+
 /* Gradient per category */
 .home-card-morning     { background: linear-gradient(135deg, #fbbf24, #f97316); }
 .home-card-evening     { background: linear-gradient(135deg, #818cf8, #7c3aed); }
@@ -198,6 +231,27 @@ body.dark #logo { filter: brightness(1.5); }
     transform: translateY(-1px);
 }
 .adhkar-card.is-completed { border-left-color: #a7f3d0; }
+
+.source-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.85rem;
+}
+.source-chip {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    background: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+    padding: 0.15rem 0.55rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+}
+html[dir="rtl"] .source-chip-row {
+    justify-content: flex-end;
+}
 
 /* ===========================
    Transliteration / Translation visibility
@@ -604,6 +658,12 @@ body.dark .dash-stat-unit  { color: #94a3b8; }
 body.dark .dash-stat-bar   { background: #334155; }
 body.dark .dash-stat-streak .dash-stat-value { color: #34d399; }
 body.dark .dash-section-label { color: #475569; }
+body.dark .home-group-header h2 { color: #6ee7b7; }
+body.dark .source-chip {
+    background: #064e3b;
+    border-color: #047857;
+    color: #a7f3d0;
+}
 body.dark .lang-select { background: #334155; border-color: #475569; color: #e2e8f0; }
 body.dark #completion-title   { color: #6ee7b7; }
 body.dark #completion-message { color: #94a3b8; }

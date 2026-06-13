@@ -227,6 +227,12 @@ const categoryMeta = {
     },
 };
 
+const categoryGroups = [
+    { titleKey: 'group_daily', keys: ['morning', 'evening', 'afterSalah'] },
+    { titleKey: 'group_duas', keys: ['rabbana', 'forgiveness', 'protection', 'distress'] },
+    { titleKey: 'group_life', keys: ['sleep', 'waking', 'travel', 'food', 'favorites'] },
+];
+
 // ============================================================
 //  SETTINGS
 // ============================================================
@@ -273,9 +279,24 @@ const translations = {
         travel_desc:        'Journey duas',
         food_desc:          'Meals and blessings',
         favorites_desc:     'Your saved duas',
+        group_daily:        'Daily',
+        group_duas:         'Duas & Protection',
+        group_life:         'Life Moments',
         morning_progress:   'Morning',
         evening_progress:   'Evening',
         streak:             'Day Streak',
+        current_streak:     'Current Streak',
+        progress:           'My Progress',
+        day:                'Day',
+        days:               'Days',
+        source:             'Source',
+        sun:                'Su',
+        mon:                'Mo',
+        tue:                'Tu',
+        wed:                'We',
+        thu:                'Th',
+        fri:                'Fr',
+        sat:                'Sa',
         item:               'item',
         items:              'items',
         count:              'Count',
@@ -336,9 +357,24 @@ const translations = {
         travel_desc:        'أدعية الرحلة',
         food_desc:          'الطعام والبركة',
         favorites_desc:     'أذكارك المحفوظة',
+        group_daily:        'اليومي',
+        group_duas:         'الأدعية والحفظ',
+        group_life:         'مواقف الحياة',
         morning_progress:   'الصباح',
         evening_progress:   'المساء',
         streak:             'يوم متواصل',
+        current_streak:     'السلسلة الحالية',
+        progress:           'تقدمي',
+        day:                'يوم',
+        days:               'أيام',
+        source:             'المصدر',
+        sun:                'أح',
+        mon:                'إث',
+        tue:                'ثل',
+        wed:                'أر',
+        thu:                'خم',
+        fri:                'جم',
+        sat:                'سب',
         item:               'عنصر',
         items:              'عناصر',
         count:              'عدّ',
@@ -380,6 +416,31 @@ function t(key) {
 function updateFooterVisibility() {
     const footer = document.getElementById('app-footer');
     if (footer) footer.classList.toggle('hidden', currentView !== 'home');
+}
+
+function getDateKey(date = new Date()) {
+    return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+}
+
+function resetTrackedProgress() {
+    Object.keys(staticAdhkarData).forEach(key => {
+        if (!staticAdhkarData[key].trackProgress || !adhkarData[key]) return;
+        adhkarData[key].items.forEach(item => { item.read = 0; });
+    });
+}
+
+function ensureCurrentDayProgress() {
+    const today = getDateKey();
+    const lastProgressDate = localStorage.getItem('adhkarProgressDate');
+    if (!lastProgressDate) {
+        localStorage.setItem('adhkarProgressDate', today);
+        return false;
+    }
+    if (lastProgressDate === today) return false;
+    resetTrackedProgress();
+    localStorage.setItem('adhkarProgressDate', today);
+    saveProgress();
+    return true;
 }
 
 const fontSizes = [
@@ -463,14 +524,22 @@ function loadProgress() {
     if (saved) {
         try {
             adhkarData = mergeStaticDataWithSaved(JSON.parse(saved));
+            const today = getDateKey();
+            const lastProgressDate = localStorage.getItem('adhkarProgressDate');
+            if (lastProgressDate && lastProgressDate !== today) {
+                resetTrackedProgress();
+            }
+            localStorage.setItem('adhkarProgressDate', today);
             saveProgress();
         } catch (error) {
             console.warn('Could not load saved progress. Resetting to default adhkar data.', error);
             adhkarData = JSON.parse(JSON.stringify(staticAdhkarData));
+            localStorage.setItem('adhkarProgressDate', getDateKey());
             saveProgress();
         }
     } else {
         adhkarData = JSON.parse(JSON.stringify(staticAdhkarData));
+        localStorage.setItem('adhkarProgressDate', getDateKey());
     }
 }
 
@@ -506,6 +575,7 @@ function applyTheme() {
 function renderHomeView() {
     currentView = 'home';
     updateFooterVisibility();
+    ensureCurrentDayProgress();
 
     document.getElementById('reader-view').classList.add('hidden');
     document.getElementById('adhkar-container').classList.add('hidden');
@@ -527,8 +597,7 @@ function renderHomeView() {
     const eveningPct = getCategoryProgress('evening');
     const streak     = getStreakCount();
 
-    const allKeys   = [...Object.keys(staticAdhkarData), 'favorites'];
-    const cardsHtml = allKeys.map(key => {
+    const buildHomeCard = key => {
         const meta  = categoryMeta[key];
         const items = key === 'favorites' ? getFavoriteItems().items : staticAdhkarData[key].items;
         const count = items.length;
@@ -553,7 +622,18 @@ function renderHomeView() {
                 <span class="home-card-count">${count} ${count === 1 ? t('item') : t('items')}</span>
                 ${progressHtml}
             </button>`;
-    }).join('');
+    };
+
+    const cardsHtml = categoryGroups.map(group => `
+        <section class="home-group">
+            <div class="home-group-header">
+                <h2>${t(group.titleKey)}</h2>
+            </div>
+            <div class="home-group-grid">
+                ${group.keys.map(buildHomeCard).join('')}
+            </div>
+        </section>
+    `).join('');
 
     homeView.innerHTML = `
         <div class="container mx-auto px-4 pt-6 pb-24 max-w-2xl">
@@ -585,8 +665,7 @@ function renderHomeView() {
                 </div>
             </div>
 
-            <p class="dash-section-label">— ${settings.language === 'ar' ? 'الفئات' : 'Categories'} —</p>
-            <div id="home-grid" class="grid grid-cols-2 gap-4">
+            <div id="home-grid" class="home-groups">
                 ${cardsHtml}
             </div>
         </div>`;
@@ -606,6 +685,7 @@ function getReaderItems(categoryKey) {
 }
 
 function openReader(categoryKey) {
+    ensureCurrentDayProgress();
     const items = getReaderItems(categoryKey);
 
     if (items.length === 0) {
@@ -694,6 +774,7 @@ function renderReaderCard() {
                 </div>
             </div>
             ${buildContentHtml(dhikr)}
+            ${buildSourceChipsHtml(dhikr)}
             <p class="mt-3 text-gray-600 text-sm english-text translation-text border-t border-gray-50 pt-3">${dhikr.translation}</p>
             ${buildCounterHtml(dhikr, readerCategory)}
         </div>
@@ -863,6 +944,24 @@ function buildContentHtml(dhikr) {
     `;
 }
 
+function getSources(dhikr) {
+    const sourceText = [dhikr.translation, dhikr.virtue_en].filter(Boolean).join(' ');
+    const sources = [...sourceText.matchAll(/\[([^\]]+)\]/g)].flatMap(match =>
+        match[1].split(/,\s*| and /).map(source => source.trim()).filter(Boolean)
+    );
+    return [...new Set(sources)].slice(0, 3);
+}
+
+function buildSourceChipsHtml(dhikr) {
+    const sources = getSources(dhikr);
+    if (!sources.length) return '';
+    return `
+        <div class="source-chip-row" aria-label="${t('source')}">
+            ${sources.map(source => `<span class="source-chip">${source}</span>`).join('')}
+        </div>
+    `;
+}
+
 function buildCounterHtml(dhikr, category) {
     if (!dhikr.count) return '';
     const readCount  = dhikr.read || 0;
@@ -943,6 +1042,7 @@ function renderSearchResults(results) {
                 </div>
             </div>
             ${buildContentHtml(dhikr)}
+            ${buildSourceChipsHtml(dhikr)}
             <p class="mt-3 text-gray-600 text-sm english-text translation-text border-t border-gray-50 pt-3">${dhikr.translation}</p>
             ${buildCounterHtml(dhikr, categoryKey)}
         `;
@@ -1019,11 +1119,22 @@ function applyLanguage(rerender = true) {
         'dark-mode-settings-label': t('dark_mode'),
         'transliteration-settings-label': t('show_transliteration'),
         'translation-settings-label': t('show_translation'),
+        'progress-title-text': t('progress'),
+        'current-streak-label': t('current_streak'),
+        'progress-morning-label': t('morning_progress'),
+        'progress-evening-label': t('evening_progress'),
     };
     Object.entries(modalLabels).forEach(([id, text]) => {
         const el = document.getElementById(id);
         if (el) el.textContent = text;
     });
+
+    document.querySelectorAll('[data-weekday]').forEach(el => {
+        el.textContent = t(el.dataset.weekday);
+    });
+
+    calculateStreak();
+    renderCalendar(currentCalendarDate);
 
     const resetBtnEl = document.getElementById('reset-btn');
     if (resetBtnEl && !resetBtnEl.disabled) resetBtnEl.textContent = t('reset');
@@ -1099,6 +1210,7 @@ function showToast(message = 'Done!') {
 function handleCount(e) {
     const btn = e.target.closest('.counter-btn');
     if (!btn || btn.disabled) return;
+    ensureCurrentDayProgress();
 
     const { id } = btn.dataset;
 
@@ -1204,8 +1316,9 @@ function updateDateTime() {
     const now = new Date();
     const dateEl = document.getElementById('date');
     const timeEl = document.getElementById('time');
-    if (dateEl) dateEl.textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    if (timeEl) timeEl.textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+    const locale = settings.language === 'ar' ? 'ar-SA' : 'en-US';
+    if (dateEl) dateEl.textContent = now.toLocaleDateString(locale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    if (timeEl) timeEl.textContent = now.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: settings.language !== 'ar' });
 }
 
 // ============================================================
@@ -1233,7 +1346,7 @@ function calculateStreak() {
         } else break;
     }
     const el = document.getElementById('streak-count');
-    if (el) el.textContent = `${streak} Day${streak !== 1 ? 's' : ''}`;
+    if (el) el.textContent = `${streak} ${streak === 1 ? t('day') : t('days')}`;
 }
 
 function renderCalendar(date) {
@@ -1241,7 +1354,8 @@ function renderCalendar(date) {
     const month = date.getMonth();
     const year  = date.getFullYear();
     const label = document.getElementById('month-year-label');
-    if (label) label.textContent = date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+    const locale = settings.language === 'ar' ? 'ar-SA' : 'en-US';
+    if (label) label.textContent = date.toLocaleDateString(locale, { month: 'long', year: 'numeric' });
 
     const firstDay    = new Date(year, month, 1).getDay();
     const daysInMonth = new Date(year, month + 1, 0).getDate();
