@@ -1,7 +1,9 @@
 /* ===========================
    Base & Typography
    =========================== */
+html { touch-action: manipulation; }
 body { font-family: 'Plus Jakarta Sans', sans-serif; }
+button, a, input, select, textarea, label { touch-action: manipulation; }
 html[dir="rtl"], html[dir="rtl"] body { font-family: 'Cairo', sans-serif; }
 
 .arabic-text {
@@ -271,8 +273,35 @@ html[dir="rtl"] .modal-close-btn {
 /* ===========================
    Settings helpers
    =========================== */
-.settings-row { display: flex; align-items: center; justify-content: space-between; }
-.settings-label { font-size: 0.9rem; color: #374151; font-weight: 500; }
+.settings-row {
+    display: grid;
+    grid-template-columns: minmax(6rem, auto) 1fr;
+    align-items: center;
+    gap: 1.5rem;
+}
+.settings-row > :last-child { justify-self: end; }
+.settings-label {
+    font-size: 0.9rem;
+    color: #374151;
+    font-weight: 500;
+    line-height: 1.4;
+}
+html[dir="rtl"] .settings-row {
+    grid-template-columns: 1fr minmax(6rem, auto);
+}
+html[dir="rtl"] .settings-label {
+    grid-column: 2;
+    justify-self: end;
+    text-align: right;
+}
+html[dir="rtl"] .settings-row > :last-child {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+}
+html[dir="rtl"] #font-size-settings-label + div {
+    flex-direction: row-reverse;
+}
 
 .toggle-switch { cursor: pointer; position: relative; display: inline-flex; align-items: center; }
 .toggle-track {

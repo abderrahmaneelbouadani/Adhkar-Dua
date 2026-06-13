@@ -377,6 +377,11 @@ function t(key) {
     return (translations[lang] && translations[lang][key]) || translations.en[key] || key;
 }
 
+function updateFooterVisibility() {
+    const footer = document.getElementById('app-footer');
+    if (footer) footer.classList.toggle('hidden', currentView !== 'home');
+}
+
 const fontSizes = [
     { label: 'S', arabic: '1rem',    english: '0.8rem'   },
     { label: 'M', arabic: '1.25rem', english: '0.875rem' },
@@ -500,6 +505,7 @@ function applyTheme() {
 
 function renderHomeView() {
     currentView = 'home';
+    updateFooterVisibility();
 
     document.getElementById('reader-view').classList.add('hidden');
     document.getElementById('adhkar-container').classList.add('hidden');
@@ -619,6 +625,7 @@ function openReader(categoryKey) {
     }
 
     currentView = 'reader';
+    updateFooterVisibility();
     document.getElementById('home-view').classList.add('hidden');
     document.getElementById('reader-view').classList.remove('hidden');
     document.getElementById('adhkar-container').classList.add('hidden');
@@ -733,6 +740,7 @@ function goHome() {
 
 function showCompletionScreen(category) {
     currentView = 'completion';
+    updateFooterVisibility();
 
     document.getElementById('home-view').classList.add('hidden');
     document.getElementById('reader-view').classList.add('hidden');
@@ -800,7 +808,10 @@ function updateProgressBar(category) {
 
     const bar = document.getElementById('progress-bar');
     if (bar)   bar.style.width = `${pct}%`;
-    if (label) label.textContent = pct >= 100 ? '✓ All completed!' : `${current} / ${total} recitations`;
+    if (label) {
+        label.textContent = '';
+        label.classList.add('hidden');
+    }
 
     if (pct >= 100) markCompletion(category);
 }
@@ -1056,6 +1067,10 @@ document.addEventListener('keydown', e => {
         if (m && !m.classList.contains('hidden')) { hideModal(id); break; }
     }
 });
+
+document.addEventListener('dblclick', e => {
+    e.preventDefault();
+}, { passive: false });
 
 // ============================================================
 //  TOAST
@@ -1398,6 +1413,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('home-view').classList.add('hidden');
             } else {
                 currentView = 'home';
+                updateFooterVisibility();
                 document.getElementById('home-view').classList.remove('hidden');
             }
             return;
@@ -1405,6 +1421,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Show search results, hide other views
         currentView = 'search';
+        updateFooterVisibility();
         document.getElementById('home-view').classList.add('hidden');
         document.getElementById('reader-view').classList.add('hidden');
 
