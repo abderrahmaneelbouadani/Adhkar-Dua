@@ -10,6 +10,7 @@ A clean, modern, and fully offline web app for daily Islamic remembrance (Adhkar
 - **After Salah Dhikr** — post-prayer remembrances
 - **Rabbana Duas** — Qur'anic supplications
 - **Forgiveness Duas** — powerful istighfar supplications
+- **Life Duas** — sleep, waking up, food, travel, protection, and distress duas
 - **Favorites** — save any dhikr/dua with a single tap, stored locally
 - **Search** — live search across Arabic text, transliteration, and translation
 - **Virtue popup** — view the hadith or Qur'anic source behind each dhikr
